@@ -1,0 +1,1 @@
+// When I click new game, it will generate two blocks in a random location

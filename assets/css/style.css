@@ -48,6 +48,8 @@
 
 /* The interface for all the game content */
 .main-interface {
+    position: relative;
+    top: 30px;
     height: 700px;
     width: 500px;
     margin: auto;
@@ -110,6 +112,10 @@
 .grid-block {
     border-radius: 5px;
     background-color: var(--ray-brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
 }
 
 .score,
