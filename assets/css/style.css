@@ -48,7 +48,7 @@
 /* The interface for all the game content */
 .main-interface {
     height: 700px;
-    width: 550px;
+    width: 500px;
     margin: auto;
     display: grid;
     row-gap: 20px;
@@ -83,4 +83,18 @@
 .game-content {
     background-color: var(--border-brown);
     border-radius: 5px;
+    padding: 15px;
+}
+
+.grid-game {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-gap: 15px;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+
+.grid-block {
+    border-radius: 5px;
+    background-color: var(--ray-brown);
 }
