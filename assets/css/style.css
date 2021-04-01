@@ -3,6 +3,8 @@
     --tan: #FAF8F0;
     --ray-brown: #CAC1B5;
     --light-brown: #BAADA2;
+    --border-brown: #B9ADA1;
+    --dark-brown: #756E66;
     --two: #EDE4DB;
     --four: #ECE1CB;
     --eight: #E9B682;
@@ -11,6 +13,25 @@
     --sixty-four: #E56846;
     --one-hundred-twenty-eight: #E8D07F;
     --final-yellow: #E7C44E;
+}
+
+/* Selecion color */
+::selection {
+    background: white;
+}
+
+/* Main title font */
+.font {
+    font-family: proxima-nova, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Smalle weight of the same font */
+.font-medium {
+    font-family: proxima-nova,sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 /* Default border selector to check HTML elements */
@@ -24,8 +45,42 @@
     height: 825px;
 }
 
+/* The interface for all the game content */
 .main-interface {
     height: 700px;
-    width: 600px;
+    width: 550px;
     margin: auto;
+    display: grid;
+    row-gap: 20px;
+    grid-template: 1.5fr 4fr / 100%;
+}
+
+/* This is the text content square in the top left corner */
+.text-content {
+    display: grid;
+    grid-template: 100% / 1fr 1fr;
+}
+
+/* The box in the top left corner */
+.top-box-one {
+    display: flex;
+}
+
+/* The text inside the top left corner */
+.text-box {
+    margin: auto;
+    width: 100%;
+    color: var(--dark-brown);
+}
+
+/* The h2 content inside the top left corner */
+.text-box h2 {
+    font-size: 80px;
+    padding-bottom: 10px;
+}
+
+/* The content container that holds the game */
+.game-content {
+    background-color: var(--border-brown);
+    border-radius: 5px;
 }
