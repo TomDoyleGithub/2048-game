@@ -12,3 +12,20 @@
     --one-hundred-twenty-eight: #E8D07F;
     --final-yellow: #E7C44E;
 }
+
+/* Default border selector to check HTML elements */
+.border {
+    border: 1px solid black;
+}
+
+/* The main background for the website */
+.background-container {
+    background-color: var(--tan);
+    height: 825px;
+}
+
+.main-interface {
+    height: 700px;
+    width: 600px;
+    margin: auto;
+}
