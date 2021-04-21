@@ -1,21 +1,20 @@
 $(".new-game").on("click", () => {
-    addBlock()
+    startAddBlock()
 })
 
 // Function that adds blocks to page
-let addBlock = () => {
+let startAddBlock = () => {
     let i = Math.floor(Math.random() * 16)
     let j = Math.floor(Math.random() * 16)
     if(i === j) {
         j++
     } else {
-        $(".grid-block").text(" ").css("background-color", "var(--ray-brown)")
-        let gridBlockOne = $(`#block${i}`);
-        let gridBlockTwo = $(`#block${j}`);
-        gridBlockOne.text("2").css({"background-color": "var(--two)", "color": "var(--dark-brown)"})
-        gridBlockTwo.text("2").css({"background-color": "var(--two)", "color": "var(--dark-brown)"})
+        $(".grid-base").text(" ")
+        $(`#grid${i}`).append(`<section class="num2"><p>2</p></section>`)
+        $(`#grid${j}`).append(`<section class="num2"><p>2</p></section>`)
     }
 }
+
 
 const init = () => {
     console.log("Initiation")
