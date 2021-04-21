@@ -99,6 +99,7 @@
     background-color: var(--border-brown);
     border-radius: 5px;
     padding: 15px;
+    position: relative;
 }
 
 .grid-game {
@@ -109,6 +110,7 @@
     grid-template: repeat(4, 1fr) / repeat(4, 1fr);
 }
 
+
 .grid-block {
     border-radius: 5px;
     background-color: var(--ray-brown);
@@ -116,6 +118,10 @@
     align-items: center;
     justify-content: center;
     font-size: 50px;
+}
+
+.tan-block {
+    background-color: var(--two);
 }
 
 .score,
@@ -144,4 +150,13 @@
     color: var(--tan);
     font-size: 18px;
     cursor: pointer;
+    transition: all 50ms ease-in-out;
+}
+
+.new-game:hover {
+    opacity: 50%;
+}
+
+.new-game:active {
+    color: var(--yurk-brown);
 }
