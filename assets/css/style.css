@@ -96,7 +96,7 @@
 
 /* The content container that holds the game */
 .game-content {
-    background-image: url(./assets/images/background.svg);
+    background-image: url(/assets/images/background.svg);
     border-radius: 5px;
     padding: 15px;
     position: relative;
