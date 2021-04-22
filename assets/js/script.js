@@ -95,6 +95,32 @@ const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, htm
         $("#grid3").html(" ");
         $("#grid3").append(`<section class="num${parseInt(block2) + parseInt(block3)}"><p>${parseInt(block2) + parseInt(block3)}</p></section>`);
     } 
+    if (block0 !== "" && block1 === "" && block2 === "" && block3 !== "" && block0 === block3) {
+        $("#grid0").html(" ")
+        $("#grid3").html(" ")
+        $("#grid3").append(`<section class="num${parseInt(block0) + parseInt(block3)}"><p>${parseInt(block0) + parseInt(block3)}</p></section>`);
+    } else if (block0 !== "" && block1 === "" && block2 === "" && block3 !== "") {
+        $("#grid0").html(" ")
+        $("#grid2").append(html0)
+    }
+    if(block0 === "" && block1 !== "" && block2 === "" && block3 !== "" && block1 === block3) {
+        $("#grid1").html(" ")
+        $("#grid3").html(" ")
+        $("#grid3").append(`<section class="num${parseInt(block1) + parseInt(block3)}"><p>${parseInt(block1) + parseInt(block3)}</p></section>`);
+    } else if (block0 === "" && block1 !== "" && block2 === "" && block3 !== "") {
+        $("#grid1").html(" ")
+        $("#grid2").append(html1)
+    }
+    if(block0 !== "" && block1 === "" && block2 !== "" && block3 === "" && block0 === block2) {
+        $("#grid0").html(" ")
+        $("#grid2").html(" ")
+        $("#grid3").append(`<section class="num${parseInt(block0) + parseInt(block2)}"><p>${parseInt(block0) + parseInt(block2)}</p></section>`);
+    } else if (block0 !== "" && block1 === "" && block2 !== "" && block3 === "") {
+        $("#grid3").append(html2)
+        $("#grid2").html(" ")
+        $("#grid2").append(html0)
+        $("#grid0").html(" ")
+    }
     // Ones non matches
     if(block0 === "" && block1 === "" && block2 !== "" && block3 === "") {
         $("#grid3").append(html2);
