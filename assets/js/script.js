@@ -17,10 +17,21 @@ let startAddBlock = () => {
     }
 }
 
+// Recursion Function that adds new blocks eveytime an arrow key is pressed
+let addBlock = () => {
+    let n = Math.floor(Math.random() * 16)
+    if ($(`#grid${n}`).text().trim(" ") === "") {
+        $(`#grid${n}`).append(`<section class="num2"><p>2</p></section>`)
+    } else {
+        addBlock();
+    }
+}
+
 // Main keydown event listener
 $(document).on("keydown", (e) => {
     let keyPress = e.originalEvent.key;
     // List of html variables and value variables
+    addBlock();
     let inGrid0 = $("#grid0").html();
     let inGrid1 = $("#grid1").html();
     let inGrid2 = $("#grid2").html();
@@ -34,7 +45,7 @@ $(document).on("keydown", (e) => {
     }
 })
 
-
+// https://www.javascripttutorial.net/javascript-recursive-function/
 // Function that slides the blocks to the right on row one
 const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
     // Three Matches
