@@ -127,6 +127,20 @@ const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, htm
         $("#grid1").append(html0)
         $("#grid0").html(" ");
     }
+    if(block0 !== "" && block1 === "" && block2 !== "" && block3 !== "" && block2 == block3) {
+        $("#grid3").html(" ");
+        $("#grid2").html(" ");
+        $("#grid0").html(" ");
+        $("#grid2").append(html0)
+        $("#grid3").append(`<section class="num${parseInt(block2) + parseInt(block3)}"><p>${parseInt(block2) + parseInt(block3)}</p></section>`);
+    } else if (block0 !== "" && block1 === "" && block2 !== "" && block3 !== "" && block0 == block2) {
+        $("#grid2").html(" ");
+        $("#grid0").html(" ");
+        $("#grid2").append(`<section class="num${parseInt(block0) + parseInt(block2)}"><p>${parseInt(block0) + parseInt(block2)}</p></section>`);
+    } else if (block0 !== "" && block1 === "" && block2 !== "" && block3 !== "") {
+        $("#grid1").append(html0)
+        $("#grid0").html(" ");
+    }
     // Two Matches
     if(block0 !== "" && block1 !== "" && block2 === "" && block3 === "" && block0 === block1) {
         $("#grid0").html(" ");
