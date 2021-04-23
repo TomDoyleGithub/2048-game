@@ -51,12 +51,12 @@ let addBlock = () => {
 }
 
 // Event listener that adds new block everytime the key is lifted
-// $(document).on("keyup", (e) => {
-//     let keyLift = e.originalEvent.key;
-//     if(keyLift === "ArrowRight" || keyLift === "ArrowLeft" || keyLift === "ArrowUp" || keyLift === "ArrowDown") {
-//         addBlock();
-//     }
-// })
+$(document).on("keyup", (e) => {
+    let keyLift = e.originalEvent.key;
+    if(keyLift === "ArrowRight" || keyLift === "ArrowLeft" || keyLift === "ArrowUp" || keyLift === "ArrowDown") {
+        addBlock();
+    }
+})
 
 // Main keydown event listener
 $(document).on("keydown", (e) => {
