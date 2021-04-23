@@ -20,7 +20,25 @@ let startAddBlock = () => {
 // Recursion Function that adds new blocks eveytime an arrow key is pressed
 let addBlock = () => {
     let n = Math.floor(Math.random() * 16)
-    if ($(`#grid${n}`).text().trim(" ") === "") {
+    
+    if ($("#grid0").text().trim() !== "" && 
+    $("#grid1").text().trim() !== "" && 
+    $("#grid2").text().trim() !== "" && 
+    $("#grid3").text().trim() !== "" && 
+    $("#grid4").text().trim() !== "" && 
+    $("#grid5").text().trim() !== "" && 
+    $("#grid6").text().trim() !== "" && 
+    $("#grid7").text().trim() !== "" && 
+    $("#grid8").text().trim() !== "" && 
+    $("#grid9").text().trim() !== "" && 
+    $("#grid10").text().trim() !== "" && 
+    $("#grid11").text().trim() !== "" && 
+    $("#grid12").text().trim() !== "" && 
+    $("#grid13").text().trim() !== "" && 
+    $("#grid14").text().trim() !== "" && 
+    $("#grid15").text().trim() !== ""){
+            alert("Game over!")
+    } else if ($(`#grid${n}`).text().trim(" ") === "") {
         $(`#grid${n}`).append(`<section class="num2"><p>2</p></section>`)
         let m = Math.floor(Math.random() * 16)
             if ($(`#grid${m}`).text().trim(" ") === "") {
@@ -159,8 +177,4 @@ const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, htm
     }
 }
 
-const init = () => {
-    console.log("Initiation")
-}
-init ();
 
