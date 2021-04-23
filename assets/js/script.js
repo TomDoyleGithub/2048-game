@@ -51,12 +51,12 @@ let addBlock = () => {
 }
 
 // Event listener that adds new block everytime the key is lifted
-$(document).on("keyup", (e) => {
-    let keyLift = e.originalEvent.key;
-    if(keyLift === "ArrowRight" || keyLift === "ArrowLeft" || keyLift === "ArrowUp" || keyLift === "ArrowDown") {
-        addBlock();
-    }
-})
+// $(document).on("keyup", (e) => {
+//     let keyLift = e.originalEvent.key;
+//     if(keyLift === "ArrowRight" || keyLift === "ArrowLeft" || keyLift === "ArrowUp" || keyLift === "ArrowDown") {
+//         addBlock();
+//     }
+// })
 
 // Main keydown event listener
 $(document).on("keydown", (e) => {
@@ -109,6 +109,23 @@ const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, htm
         $("#grid1").html(" ");
         $("#grid2").html(" ");
         $("#grid2").append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`);
+    }
+    if(block0 !== "" && block1 !== "" && block2 === "" && block3 !== "" && block1 == block3) {
+        $("#grid3").html(" ");
+        $("#grid3").append(`<section class="num${parseInt(block1) + parseInt(block3)}"><p>${parseInt(block1) + parseInt(block3)}</p></section>`);
+        $("#grid2").append(html0)
+        $("#grid0").html(" ");
+        $("#grid1").html(" ");
+    } else if (block0 !== "" && block1 !== "" && block2 === "" && block3 !== "" && block0 == block1) {
+        $("#grid2").html(" ");
+        $("#grid2").append(`<section class="num${parseInt(block0) + parseInt(block1)}"><p>${parseInt(block0) + parseInt(block1)}</p></section>`);
+        $("#grid0").html(" ");
+        $("#grid1").html(" ");
+    } else if (block0 !== "" && block1 !== "" && block2 === "" && block3 !== "") {
+        $("#grid2").append(html1)
+        $("#grid1").html(" ");
+        $("#grid1").append(html0)
+        $("#grid0").html(" ");
     }
     // Two Matches
     if(block0 !== "" && block1 !== "" && block2 === "" && block3 === "" && block0 === block1) {
