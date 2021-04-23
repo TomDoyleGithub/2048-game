@@ -22,16 +22,28 @@ let addBlock = () => {
     let n = Math.floor(Math.random() * 16)
     if ($(`#grid${n}`).text().trim(" ") === "") {
         $(`#grid${n}`).append(`<section class="num2"><p>2</p></section>`)
+        let m = Math.floor(Math.random() * 16)
+            if ($(`#grid${m}`).text().trim(" ") === "") {
+                $(`#grid${m}`).append(`<section class="num2"><p>2</p></section>`)
+            }
     } else {
         addBlock();
     }
+    
 }
+
+// Event listener that adds new block everytime the key is lifted
+$(document).on("keyup", (e) => {
+    let keyLift = e.originalEvent.key;
+    if(keyLift === "ArrowRight" || keyLift === "ArrowLeft" || keyLift === "ArrowUp" || keyLift === "ArrowDown") {
+        addBlock();
+    }
+})
 
 // Main keydown event listener
 $(document).on("keydown", (e) => {
     let keyPress = e.originalEvent.key;
     // List of html variables and value variables
-    addBlock();
     let inGrid0 = $("#grid0").html();
     let inGrid1 = $("#grid1").html();
     let inGrid2 = $("#grid2").html();
