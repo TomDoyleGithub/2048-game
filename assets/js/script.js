@@ -71,9 +71,18 @@ $(document).on("keydown", (e) => {
     }
 })
 
-// https://www.javascripttutorial.net/javascript-recursive-function/
 // Function that slides the blocks to the right on row one
 const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
+    // Four Matches
+    let allFours = block0 !== "" && block1 !== "" && block2 !== "" && block3 !== "";
+    if(allFours && block0 === block1 && block2 === block3) {
+        $("#grid3").html(" ")
+        $("#grid2").html(" ")
+        $("#grid1").html(" ")
+        $("#grid0").html(" ")
+        $("#grid2").append(`<section class="num${parseInt(block0) + parseInt(block1)}"><p>${parseInt(block0) + parseInt(block1)}</p></section>`);
+        $("#grid3").append(`<section class="num${parseInt(block2) + parseInt(block3)}"><p>${parseInt(block2) + parseInt(block3)}</p></section>`);
+    } 
     // Three Matches
     if(block0 !== "" && block1 !== "" && block2 !== "" && block3 === "" && block1 === block2) {
         $("#grid3").append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`);
