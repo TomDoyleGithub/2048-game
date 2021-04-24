@@ -186,6 +186,81 @@
     transition: all 200ms ease-in-out;
 }
 
+.num16 {
+    background-color: var(--sixteen);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: white;
+    position: relative;
+    animation: size 200ms ease;
+    transition: all 200ms ease-in-out;
+}
+
+.num32 {
+    background-color: var(--thirty-two);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: white;
+    position: relative;
+    animation: size 200ms ease;
+    transition: all 200ms ease-in-out;
+}
+
+.num64 {
+    background-color: var(--sixty-four);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: white;
+    position: relative;
+    animation: size 200ms ease;
+    transition: all 200ms ease-in-out;
+}
+
+.num128 {
+    background-color: var(--one-hundred-twenty-eight);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: white;
+    position: relative;
+    animation: size 200ms ease;
+    transition: all 200ms ease-in-out;
+}
+
+.num256 {
+    background-color: var(--one-hundred-twenty-eight);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: white;
+    position: relative;
+    animation: size 200ms ease;
+    transition: all 200ms ease-in-out;
+}
+
 @keyframes size {
     0% {
         font-size: 10px;
