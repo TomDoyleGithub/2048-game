@@ -40,10 +40,6 @@ let addBlock = () => {
             alert("Game over!")
     } else if ($(`#grid${n}`).text().trim(" ") === "") {
         $(`#grid${n}`).append(`<section class="num2"><p>2</p></section>`)
-        let m = Math.floor(Math.random() * 16)
-            if ($(`#grid${m}`).text().trim(" ") === "") {
-                $(`#grid${m}`).append(`<section class="num2"><p>2</p></section>`)
-            }
     } else {
         addBlock();
     }
