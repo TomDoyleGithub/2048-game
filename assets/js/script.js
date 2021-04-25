@@ -67,47 +67,9 @@ $(document).on("keydown", (e) => {
     let grid2Num = $("#grid2").text().trim(" ");
     let grid3Num = $("#grid3").text().trim(" ");
     if(keyPress === "ArrowRight") {
-        // slideBlockRightRowOne (grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3)
-        slideOne(grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3)
+        slideBlockRightRowOne (grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3)
     }
 })
-
-const slideOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
-        
-    const blockZero = () => {
-        
-    }
-
-    const blockOne = () => {
-        if(block1 !== "") {
-            if(block1 === block2 && block3 === "") {
-                console.log("Test")
-            }
-        } else {
-            blockZero();
-        }
-    }
-
-    const blockTwo = () => {
-        if(block2 !== "") {
-            if(block2 === block3) {
-                $("#grid2").html(" ") 
-                $("#grid3").html(" ") 
-                $("#grid3").append(`<section class="num${parseInt(block2) + parseInt(block3)}"><p>${parseInt(block2) + parseInt(block3)}</p></section>`);
-                blockOne();
-            } else if (block3 === "") {
-                $("#grid2").html(" ")
-                $("#grid3").append(html2)
-                blockOne();
-            } else {
-                blockOne();
-            }
-        } else {
-            blockOne()
-        } 
-    }
-    blockTwo();
-}
 
 
 // Function that slides the blocks to the right on row one
