@@ -94,7 +94,7 @@ $(document).on("keydown", (e) => {
         slideBlockRightRowOne (grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3);
         slideBlockRightRowTwo (grid4Num, grid5Num, grid6Num, grid7Num, inGrid4, inGrid5, inGrid6, inGrid7);
         slideBlockRightRowThree (grid8Num, grid9Num, grid10Num, grid11Num, inGrid8, inGrid9, inGrid10, inGrid11);
-        // slideBlockRightRowFour (grid12Num, grid13Num, grid14Num, grid15Num, inGrid12, inGrid13, inGrid14, inGrid15);
+        slideBlockRightRowFour (grid12Num, grid13Num, grid14Num, grid15Num, inGrid12, inGrid13, inGrid14, inGrid15);
     }
 })
 
@@ -593,5 +593,171 @@ const slideBlockRightRowThree = (block8, block9, block10, block11, html8, html9,
     if(block8 !== "" && block9 === "" && block10 === "" && block11 === "") {
         $("#grid11").append(html8);
         $("#grid8").html(" ")
+    }
+}
+
+// Function that slides the blocks to the right on row one
+const slideBlockRightRowFour = (block12, block13, block14, block15, html0, html1, html2, html3) => {
+    // Four Matches
+    let allFours = block12 !== "" && block13 !== "" && block14 !== "" && block15 !== "";
+    if(allFours && block12 === block13 && block14 === block15) {
+        $("#grid15").html(" ")
+        $("#grid14").html(" ")
+        $("#grid13").html(" ")
+        $("#grid12").html(" ")
+        $("#grid14").append(`<section class="num${parseInt(block12) + parseInt(block13)}"><p>${parseInt(block12) + parseInt(block13)}</p></section>`);
+        $("#grid15").append(`<section class="num${parseInt(block14) + parseInt(block15)}"><p>${parseInt(block14) + parseInt(block15)}</p></section>`);
+    } else if (allFours && block12 === block13 && block13 === block14) {
+        $("#grid12").html(" ")
+        $("#grid13").html(" ")
+        $("#grid14").html(" ")
+        $("#grid13").append(html0)
+        $("#grid14").append(`<section class="num${parseInt(block13) + parseInt(block14)}"><p>${parseInt(block13) + parseInt(block14)}</p></section>`);
+    } else if (allFours && block12 === block13) {
+        $("#grid12").html(" ")
+        $("#grid13").html(" ")
+        $("#grid13").append(`<section class="num${parseInt(block12) + parseInt(block13)}"><p>${parseInt(block12) + parseInt(block13)}</p></section>`);
+    } else if (allFours && block14 === block15) {
+        $("#grid12").html(" ")
+        $("#grid13").html(" ")
+        $("#grid14").html(" ")
+        $("#grid15").html(" ")
+        $("#grid15").append(`<section class="num${parseInt(block14) + parseInt(block15)}"><p>${parseInt(block14) + parseInt(block15)}</p></section>`);
+        $("#grid14").append(html1)
+        $("#grid13").append(html0)
+    } else if (allFours && block13 === block14) {
+        $("#grid12").html(" ")
+        $("#grid13").html(" ")
+        $("#grid14").html(" ")
+        $("#grid14").append(`<section class="num${parseInt(block13) + parseInt(block14)}"><p>${parseInt(block13) + parseInt(block14)}</p></section>`);
+        $("#grid13").append(html0)
+    }
+    // Three Matches
+    if(block12 !== "" && block13 !== "" && block14 !== "" && block15 === "" && block13 === block14) {
+        $("#grid15").append(`<section class="num${parseInt(block13) + parseInt(block14)}"><p>${parseInt(block13) + parseInt(block14)}</p></section>`);
+        $("#grid14").html(" ")
+        $("#grid13").html(" ")
+        $("#grid12").html(" ")
+        $("#grid14").append(html0)
+    } else if(block12 !== "" && block13 !== "" && block14 !== "" && block15 === "" && block12 === block13) {
+        $("#grid15").append(html2)
+        $("#grid14").html(" ")
+        $("#grid14").append(`<section class="num${parseInt(block12) + parseInt(block13)}"><p>${parseInt(block12) + parseInt(block13)}</p></section>`);
+        $("#grid12").html(" ")
+        $("#grid13").html(" ")
+    } else if(block12 !== "" && block13 !== "" && block14 !== "" && block15 === "") {
+        $("#grid15").append(html2);
+        $("#grid14").html(" ")
+        $("#grid14").append(html1);
+        $("#grid13").html(" ")
+        $("#grid13").append(html0);
+        $("#grid12").html(" ")
+    }
+    if(block12 === "" && block13 !== "" && block14 !== "" && block15 !== "" && block14 == block15) {
+        $("#grid13").html(" ");
+        $("#grid14").html(" ");
+        $("#grid14").append(html1)
+        $("#grid15").html(" ");
+        $("#grid15").append(`<section class="num${parseInt(block14) + parseInt(block15)}"><p>${parseInt(block14) + parseInt(block15)}</p></section>`);
+    } else if(block12 === "" && block13 !== "" && block14 !== "" && block15 !== "" && block13 == block14) {
+        $("#grid13").html(" ");
+        $("#grid14").html(" ");
+        $("#grid14").append(`<section class="num${parseInt(block13) + parseInt(block14)}"><p>${parseInt(block13) + parseInt(block14)}</p></section>`);
+    }
+    if(block12 !== "" && block13 !== "" && block14 === "" && block15 !== "" && block13 == block15) {
+        $("#grid15").html(" ");
+        $("#grid15").append(`<section class="num${parseInt(block13) + parseInt(block15)}"><p>${parseInt(block13) + parseInt(block15)}</p></section>`);
+        $("#grid14").append(html0)
+        $("#grid12").html(" ");
+        $("#grid13").html(" ");
+    } else if (block12 !== "" && block13 !== "" && block14 === "" && block15 !== "" && block12 == block13) {
+        $("#grid14").html(" ");
+        $("#grid14").append(`<section class="num${parseInt(block12) + parseInt(block13)}"><p>${parseInt(block12) + parseInt(block13)}</p></section>`);
+        $("#grid12").html(" ");
+        $("#grid13").html(" ");
+    } else if (block12 !== "" && block13 !== "" && block14 === "" && block15 !== "") {
+        $("#grid14").append(html1)
+        $("#grid13").html(" ");
+        $("#grid13").append(html0)
+        $("#grid12").html(" ");
+    }
+    if(block12 !== "" && block13 === "" && block14 !== "" && block15 !== "" && block14 == block15) {
+        $("#grid15").html(" ");
+        $("#grid14").html(" ");
+        $("#grid12").html(" ");
+        $("#grid14").append(html0)
+        $("#grid15").append(`<section class="num${parseInt(block14) + parseInt(block15)}"><p>${parseInt(block14) + parseInt(block15)}</p></section>`);
+    } else if (block12 !== "" && block13 === "" && block14 !== "" && block15 !== "" && block12 == block14) {
+        $("#grid14").html(" ");
+        $("#grid12").html(" ");
+        $("#grid14").append(`<section class="num${parseInt(block12) + parseInt(block14)}"><p>${parseInt(block12) + parseInt(block14)}</p></section>`);
+    } else if (block12 !== "" && block13 === "" && block14 !== "" && block15 !== "") {
+        $("#grid13").append(html0)
+        $("#grid12").html(" ");
+    }
+    // Two Matches
+    if(block12 !== "" && block13 !== "" && block14 === "" && block15 === "" && block12 === block13) {
+        $("#grid12").html(" ");
+        $("#grid13").html(" ");
+        $("#grid15").append(`<section class="num${parseInt(block12) + parseInt(block13)}"><p>${parseInt(block12) + parseInt(block13)}</p></section>`);
+    } else if (block12 !== "" && block13 !== "" && block14 === "" && block15 === "") {
+        $("#grid15").append(html1);
+        $("#grid13").html(" ")
+        $("#grid14").append(html0);
+        $("#grid12").html(" ")
+    }
+    if (block12 === "" && block13 !== "" && block14 !== "" && block15 === "" && block13 === block14) {
+        $("#grid13").html(" ");
+        $("#grid14").html(" ");
+        $("#grid15").append(`<section class="num${parseInt(block13) + parseInt(block14)}"><p>${parseInt(block13) + parseInt(block14)}</p></section>`);
+    } else if(block12 === "" && block13 !== "" && block14 !== "" && block15 === "") {
+        $("#grid15").append(html2);
+        $("#grid14").html(" ")
+        $("#grid14").append(html1);
+        $("#grid13").html(" ")
+    }
+    if (block12 === "" && block13 === "" && block14 !== "" && block15 !== "" && block14 === block15) {
+        $("#grid14").html(" ");
+        $("#grid15").html(" ");
+        $("#grid15").append(`<section class="num${parseInt(block14) + parseInt(block15)}"><p>${parseInt(block14) + parseInt(block15)}</p></section>`);
+    } 
+    if (block12 !== "" && block13 === "" && block14 === "" && block15 !== "" && block12 === block15) {
+        $("#grid12").html(" ")
+        $("#grid15").html(" ")
+        $("#grid15").append(`<section class="num${parseInt(block12) + parseInt(block15)}"><p>${parseInt(block12) + parseInt(block15)}</p></section>`);
+    } else if (block12 !== "" && block13 === "" && block14 === "" && block15 !== "") {
+        $("#grid12").html(" ")
+        $("#grid14").append(html0)
+    }
+    if(block12 === "" && block13 !== "" && block14 === "" && block15 !== "" && block13 === block15) {
+        $("#grid13").html(" ")
+        $("#grid15").html(" ")
+        $("#grid15").append(`<section class="num${parseInt(block13) + parseInt(block15)}"><p>${parseInt(block13) + parseInt(block15)}</p></section>`);
+    } else if (block12 === "" && block13 !== "" && block14 === "" && block15 !== "") {
+        $("#grid13").html(" ")
+        $("#grid14").append(html1)
+    }
+    if(block12 !== "" && block13 === "" && block14 !== "" && block15 === "" && block12 === block14) {
+        $("#grid12").html(" ")
+        $("#grid14").html(" ")
+        $("#grid15").append(`<section class="num${parseInt(block12) + parseInt(block14)}"><p>${parseInt(block12) + parseInt(block14)}</p></section>`);
+    } else if (block12 !== "" && block13 === "" && block14 !== "" && block15 === "") {
+        $("#grid15").append(html2)
+        $("#grid14").html(" ")
+        $("#grid14").append(html0)
+        $("#grid12").html(" ")
+    }
+    // Ones non matches
+    if(block12 === "" && block13 === "" && block14 !== "" && block15 === "") {
+        $("#grid15").append(html2);
+        $("#grid14").html(" ")
+    }
+    if(block12 === "" && block13 !== "" && block14 === "" && block15 === "") {
+        $("#grid15").append(html1);
+        $("#grid13").html(" ")
+    }
+    if(block12 !== "" && block13 === "" && block14 === "" && block15 === "") {
+        $("#grid15").append(html0);
+        $("#grid12").html(" ")
     }
 }
