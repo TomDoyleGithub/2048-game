@@ -97,6 +97,10 @@ $(document).on("keydown", (e) => {
     //     slideBlockRightRowFour (grid12Num, grid13Num, grid14Num, grid15Num, inGrid12, inGrid13, inGrid14, inGrid15);
     // }
     function Combination (block1, block2, block3, block4, html1, html2, html3, html4) {
+        // Function that adds block together
+        this.addPlus = (one, two) => {
+            return `<section class="num${parseInt(one) + parseInt(two)}"><p>${parseInt(one) + parseInt(two)}</p></section>`
+        };
         this.allFours = block1 !== "" && block2 !== "" && block3 !== "" && block4 !== "";
         this.possibleOne = block1 === block2 && block3 === block4;
         this.possibleTwo = block1 === block2 && block2 === block3;
@@ -110,18 +114,18 @@ $(document).on("keydown", (e) => {
                     html2.html(' ')
                     html3.html(' ')
                     html4.html(' ')
-                    html3.append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`)
-                    html4.append(`<section class="num${parseInt(block3) + parseInt(block4)}"><p>${parseInt(block3) + parseInt(block4)}</p></section>`)
+                    html3.append(this.addPlus(block1, block2))
+                    html4.append(this.addPlus(block3, block4))
                 } else if (this.possibleTwo) {
                     html3.html(' ')
                     html2.html(' ')
                     html2.append(html1.html());
                     html1.html(' ')
-                    html3.append(`<section class="num${parseInt(block2) + parseInt(block3)}"><p>${parseInt(block2) + parseInt(block3)}</p></section>`)
+                    html3.append(this.addPlus(block2, block3))
                 } else if (this.possibleThree) {
                     html1.html(' ')
                     html2.html(' ')
-                    html2.append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`)
+                    html2.append(this.addPlus(block1, block2))
                 } else if (this.possibleFour) {
                     html3.html(' ')
                     html3.append(html2.html())
@@ -129,7 +133,7 @@ $(document).on("keydown", (e) => {
                     html2.append(html1.html())
                     html1.html(' ')
                     html4.html(' ')
-                    html4.append(`<section class="num${parseInt(block3) + parseInt(block4)}"><p>${parseInt(block3) + parseInt(block4)}</p></section>`)
+                    html4.append(this.addPlus(block3, block4));
                 }
             }
         };
