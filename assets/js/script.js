@@ -58,10 +58,10 @@ $(document).on("keyup", (e) => {
 $(document).on("keydown", (e) => {
     let keyPress = e.originalEvent.key;
     // List of html variables and value variables
-    let inGrid0 = $("#grid0").html();
-    let inGrid1 = $("#grid1").html();
-    let inGrid2 = $("#grid2").html();
-    let inGrid3 = $("#grid3").html();
+    let inGrid0 = $("#grid0");
+    let inGrid1 = $("#grid1");
+    let inGrid2 = $("#grid2");
+    let inGrid3 = $("#grid3");
     let inGrid4 = $("#grid4").html();
     let inGrid5 = $("#grid5").html();
     let inGrid6 = $("#grid6").html();
@@ -96,23 +96,26 @@ $(document).on("keydown", (e) => {
     //     slideBlockRightRowThree (grid8Num, grid9Num, grid10Num, grid11Num, inGrid8, inGrid9, inGrid10, inGrid11);
     //     slideBlockRightRowFour (grid12Num, grid13Num, grid14Num, grid15Num, inGrid12, inGrid13, inGrid14, inGrid15);
     // }
-    slideOne(grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3);
-    console.log(grid2Num)
-})
+    function Combination (block1, block2, block3, block4, html1, html2, html3, html4) {
+        this.allFours = block1 !== "" && block2 !== "" && block3 !== "" && block4 !== "";
+        this.possibleOne = block1 === block2 && block3 === block4;
+        this.runTest = () => {
+            if(this.allFours && this.possibleOne) {
+                html1.html(' ');
+                html2.html(' ');
+                html3.html(' ');
+                html4.html(' ');
+                html3.append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`)
+                html4.append(`<section class="num${parseInt(block3) + parseInt(block4)}"><p>${parseInt(block3) + parseInt(block4)}</p></section>`)
+            } 
+        };
 
-
-const slideOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
-    if(block2 !== "") {
-        if(block2 === block3) {
-            $("#grid3").empty();
-            $("#grid2").empty();
-            $("#grid3").append(`<section class="num${parseInt(block2) + parseInt(block3)}"><p>${parseInt(block2) + parseInt(block3)}</p></section>`);
-        } else if (block3 === "") {
-            $("#grid2").empty();
-            $("#grid3").append(html2);
-        }
     }
-} 
+
+    const rowOne = new Combination(grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3);
+    rowOne.runTest();
+   
+})
 
 // Function that slides the blocks to the right on row one
 const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
