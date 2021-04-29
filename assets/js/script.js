@@ -123,7 +123,13 @@ $(document).on("keydown", (e) => {
                     html2.html(' ')
                     html2.append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`)
                 } else if (this.possibleFour) {
-
+                    html3.html(' ')
+                    html3.append(html2.html())
+                    html2.html(' ')
+                    html2.append(html1.html())
+                    html1.html(' ')
+                    html4.html(' ')
+                    html4.append(`<section class="num${parseInt(block3) + parseInt(block4)}"><p>${parseInt(block3) + parseInt(block4)}</p></section>`)
                 }
             }
         };
