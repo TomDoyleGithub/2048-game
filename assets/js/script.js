@@ -90,12 +90,6 @@ $(document).on("keydown", (e) => {
     let grid13Num = $("#grid13").text().trim(" ");
     let grid14Num = $("#grid14").text().trim(" ");
     let grid15Num = $("#grid15").text().trim(" ");
-    // if(keyPress === "ArrowRight") {
-    //     slideBlockRightRowOne (grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3);
-    //     slideBlockRightRowTwo (grid4Num, grid5Num, grid6Num, grid7Num, inGrid4, inGrid5, inGrid6, inGrid7);
-    //     slideBlockRightRowThree (grid8Num, grid9Num, grid10Num, grid11Num, inGrid8, inGrid9, inGrid10, inGrid11);
-    //     slideBlockRightRowFour (grid12Num, grid13Num, grid14Num, grid15Num, inGrid12, inGrid13, inGrid14, inGrid15);
-    // }
     function Combination (block1, block2, block3, block4, html1, html2, html3, html4) {
         // Function that adds block together
         this.addPlus = (one, two) => {
@@ -147,46 +141,22 @@ $(document).on("keydown", (e) => {
     }
 
     const rowOne = new Combination(grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3);
-    rowOne.runTest();
+    const rowTwo = new Combination(grid4Num, grid5Num, grid6Num, grid7Num, inGrid4, inGrid5, inGrid6, inGrid7);
+    const rowThree = new Combination(grid8Num, grid9Num, grid10Num, grid11Num, inGrid8, inGrid9, inGrid10, inGrid11);
+    const rowFour = new Combination(grid12Num, grid13Num, grid14Num, grid15Num, inGrid12, inGrid13, inGrid14, inGrid15);
+    if(keyPress === "ArrowRight") {
+        rowOne.runTest();
+        rowTwo.runTest();
+        rowThree.runTest();
+        rowFour.runTest();
+    }
+    
    
 })
 
 // Function that slides the blocks to the right on row one
 const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
-    // Four Matches
-    let allFours = block0 !== "" && block1 !== "" && block2 !== "" && block3 !== "";
-    if(allFours && block0 === block1 && block2 === block3) {
-        $("#grid3").html(" ")
-        $("#grid2").html(" ")
-        $("#grid1").html(" ")
-        $("#grid0").html(" ")
-        $("#grid2").append(`<section class="num${parseInt(block0) + parseInt(block1)}"><p>${parseInt(block0) + parseInt(block1)}</p></section>`);
-        $("#grid3").append(`<section class="num${parseInt(block2) + parseInt(block3)}"><p>${parseInt(block2) + parseInt(block3)}</p></section>`);
-    } else if (allFours && block0 === block1 && block1 === block2) {
-        $("#grid0").html(" ")
-        $("#grid1").html(" ")
-        $("#grid2").html(" ")
-        $("#grid1").append(html0)
-        $("#grid2").append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`);
-    } else if (allFours && block0 === block1) {
-        $("#grid0").html(" ")
-        $("#grid1").html(" ")
-        $("#grid1").append(`<section class="num${parseInt(block0) + parseInt(block1)}"><p>${parseInt(block0) + parseInt(block1)}</p></section>`);
-    } else if (allFours && block2 === block3) {
-        $("#grid0").html(" ")
-        $("#grid1").html(" ")
-        $("#grid2").html(" ")
-        $("#grid3").html(" ")
-        $("#grid3").append(`<section class="num${parseInt(block2) + parseInt(block3)}"><p>${parseInt(block2) + parseInt(block3)}</p></section>`);
-        $("#grid2").append(html1)
-        $("#grid1").append(html0)
-    } else if (allFours && block1 === block2) {
-        $("#grid0").html(" ")
-        $("#grid1").html(" ")
-        $("#grid2").html(" ")
-        $("#grid2").append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`);
-        $("#grid1").append(html0)
-    }
+    
     // Three Matches
     if(block0 !== "" && block1 !== "" && block2 !== "" && block3 === "" && block1 === block2) {
         $("#grid3").append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`);
