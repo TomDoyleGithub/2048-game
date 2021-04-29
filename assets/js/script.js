@@ -62,18 +62,18 @@ $(document).on("keydown", (e) => {
     let inGrid1 = $("#grid1");
     let inGrid2 = $("#grid2");
     let inGrid3 = $("#grid3");
-    let inGrid4 = $("#grid4").html();
-    let inGrid5 = $("#grid5").html();
-    let inGrid6 = $("#grid6").html();
-    let inGrid7 = $("#grid7").html();
-    let inGrid8 = $("#grid8").html();
-    let inGrid9 = $("#grid9").html();
-    let inGrid10 = $("#grid10").html();
-    let inGrid11 = $("#grid11").html();
-    let inGrid12 = $("#grid12").html();
-    let inGrid13 = $("#grid13").html();
-    let inGrid14 = $("#grid14").html();
-    let inGrid15 = $("#grid15").html();
+    let inGrid4 = $("#grid4");
+    let inGrid5 = $("#grid5");
+    let inGrid6 = $("#grid6");
+    let inGrid7 = $("#grid7");
+    let inGrid8 = $("#grid8");
+    let inGrid9 = $("#grid9");
+    let inGrid10 = $("#grid10");
+    let inGrid11 = $("#grid11");
+    let inGrid12 = $("#grid12");
+    let inGrid13 = $("#grid13");
+    let inGrid14 = $("#grid14");
+    let inGrid15 = $("#grid15");
     let grid0Num = $("#grid0").text().trim(" ");
     let grid1Num = $("#grid1").text().trim(" ");
     let grid2Num = $("#grid2").text().trim(" ");
@@ -100,17 +100,31 @@ $(document).on("keydown", (e) => {
         this.allFours = block1 !== "" && block2 !== "" && block3 !== "" && block4 !== "";
         this.possibleOne = block1 === block2 && block3 === block4;
         this.possibleTwo = block1 === block2 && block2 === block3;
-        this.possibleThree = block1 === block1;
+        this.possibleThree = block1 === block2;
         this.possibleFour = block3 === block4;
         this.possibleFive = block2 === block3;
         this.runTest = () => {
-            if(this.allFours && this.possibleOne) {
-                html1.html(' ')
-                html2.html(' ')
-                html3.html(' ')
-                html4.html(' ')
-                html3.append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`)
-                html4.append(`<section class="num${parseInt(block3) + parseInt(block4)}"><p>${parseInt(block3) + parseInt(block4)}</p></section>`)
+            if(this.allFours) {
+                if(this.possibleOne) {
+                    html1.html(' ')
+                    html2.html(' ')
+                    html3.html(' ')
+                    html4.html(' ')
+                    html3.append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`)
+                    html4.append(`<section class="num${parseInt(block3) + parseInt(block4)}"><p>${parseInt(block3) + parseInt(block4)}</p></section>`)
+                } else if (this.possibleTwo) {
+                    html3.html(' ')
+                    html2.html(' ')
+                    html2.append(html1.html());
+                    html1.html(' ')
+                    html3.append(`<section class="num${parseInt(block2) + parseInt(block3)}"><p>${parseInt(block2) + parseInt(block3)}</p></section>`)
+                } else if (this.possibleThree) {
+                    html1.html(' ')
+                    html2.html(' ')
+                    html2.append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`)
+                } else if (this.possibleFour) {
+
+                }
             }
         };
 
