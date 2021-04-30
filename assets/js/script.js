@@ -91,11 +91,14 @@ $(document).on("keydown", (e) => {
     let grid14Num = $("#grid14").text().trim(" ");
     let grid15Num = $("#grid15").text().trim(" ");
     function Combination (block1, block2, block3, block4, html1, html2, html3, html4) {
-        // Function that adds block together
         this.addPlus = (one, two) => {
             return `<section class="num${parseInt(one) + parseInt(two)}"><p>${parseInt(one) + parseInt(two)}</p></section>`
         };
         this.allFours = block1 !== "" && block2 !== "" && block3 !== "" && block4 !== "";
+        this.allThree1 = block1 !== "" && block2 !== "" && block3 !== "" && block4 === "";
+        this.allThree2 = block1 === "" && block2 !== "" && block3 !== "" && block4 !== "";
+        this.allThree3 = block1 !== "" && block2 !== "" && block3 === "" && block4 !== "";
+        this.allThree4 = block1 !== "" && block2 === "" && block3 !== "" && block4 !== "";
         this.possibleOne = block1 === block2 && block3 === block4;
         this.possibleTwo = block1 === block2 && block2 === block3;
         this.possibleThree = block1 === block2;
@@ -136,6 +139,28 @@ $(document).on("keydown", (e) => {
                     html3.append(this.addPlus(block2, block3))
                 }
             }
+            if(this.allThree1) {
+                if(this.possibleFive) {
+                    html2.html(' ')
+                    html3.html(' ')
+                    html3.append(html1.html())
+                    html1.html(' ')
+                    html4.append(this.addPlus(block2, block3))
+                } else if (this.possibleThree) {
+                    html1.html(' ')
+                    html2.html(' ')
+                    html4.append(html3.html())
+                    html3.html(' ')
+                    html3.append(this.addPlus(block1, block2))
+                } else {
+                    html4.append(html3.html())
+                    html3.html(' ')
+                    html3.append(html2.html())
+                    html2.html(' ')
+                    html2.append(html1.html())
+                    html1.html(' ')
+                }
+            }
         };
 
     }
@@ -157,27 +182,6 @@ $(document).on("keydown", (e) => {
 // Function that slides the blocks to the right on row one
 const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
     
-    // Three Matches
-    if(block0 !== "" && block1 !== "" && block2 !== "" && block3 === "" && block1 === block2) {
-        $("#grid3").append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`);
-        $("#grid2").html(" ")
-        $("#grid1").html(" ")
-        $("#grid0").html(" ")
-        $("#grid2").append(html0)
-    } else if(block0 !== "" && block1 !== "" && block2 !== "" && block3 === "" && block0 === block1) {
-        $("#grid3").append(html2)
-        $("#grid2").html(" ")
-        $("#grid2").append(`<section class="num${parseInt(block0) + parseInt(block1)}"><p>${parseInt(block0) + parseInt(block1)}</p></section>`);
-        $("#grid0").html(" ")
-        $("#grid1").html(" ")
-    } else if(block0 !== "" && block1 !== "" && block2 !== "" && block3 === "") {
-        $("#grid3").append(html2);
-        $("#grid2").html(" ")
-        $("#grid2").append(html1);
-        $("#grid1").html(" ")
-        $("#grid1").append(html0);
-        $("#grid0").html(" ")
-    }
     if(block0 === "" && block1 !== "" && block2 !== "" && block3 !== "" && block2 == block3) {
         $("#grid1").html(" ");
         $("#grid2").html(" ");
