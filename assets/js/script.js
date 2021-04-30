@@ -212,7 +212,7 @@ $(document).on("keydown", (e) => {
 
 // Function that slides the blocks to the right on row one
 const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
-    
+    // Threes
     if(block0 === "" && block1 !== "" && block2 !== "" && block3 !== "" && block2 == block3) {
         $("#grid1").html(" ");
         $("#grid2").html(" ");
