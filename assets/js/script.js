@@ -161,6 +161,19 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                 }
             }
+            if(this.allThree2) {
+                if(this.possibleFour) {
+                    html3.html(' ')
+                    html4.html(' ')
+                    html3.append(html2.html())
+                    html2.html(' ')
+                    html4.append(this.addPlus(block3, block4))
+                } else if (this.possibleFive) {
+                    html2.html(' ')
+                    html3.html(' ')
+                    html3.append(this.addPlus(block2, block3))
+                }
+            }
         };
 
     }
@@ -213,17 +226,6 @@ $(document).on("keydown", (e) => {
 // Function that slides the blocks to the right on row one
 const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
     // Threes
-    if(block0 === "" && block1 !== "" && block2 !== "" && block3 !== "" && block2 == block3) {
-        $("#grid1").html(" ");
-        $("#grid2").html(" ");
-        $("#grid2").append(html1)
-        $("#grid3").html(" ");
-        $("#grid3").append(`<section class="num${parseInt(block2) + parseInt(block3)}"><p>${parseInt(block2) + parseInt(block3)}</p></section>`);
-    } else if(block0 === "" && block1 !== "" && block2 !== "" && block3 !== "" && block1 == block2) {
-        $("#grid1").html(" ");
-        $("#grid2").html(" ");
-        $("#grid2").append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`);
-    }
     if(block0 !== "" && block1 !== "" && block2 === "" && block3 !== "" && block1 == block3) {
         $("#grid3").html(" ");
         $("#grid3").append(`<section class="num${parseInt(block1) + parseInt(block3)}"><p>${parseInt(block1) + parseInt(block3)}</p></section>`);
