@@ -20,30 +20,9 @@ let startAddBlock = () => {
 // Recursion Function that adds new blocks eveytime an arrow key is pressed
 let addBlock = () => {
     let n = Math.floor(Math.random() * 16)
-    
-    if ($("#grid0").text().trim() !== "" && 
-    $("#grid1").text().trim() !== "" && 
-    $("#grid2").text().trim() !== "" && 
-    $("#grid3").text().trim() !== "" && 
-    $("#grid4").text().trim() !== "" && 
-    $("#grid5").text().trim() !== "" && 
-    $("#grid6").text().trim() !== "" && 
-    $("#grid7").text().trim() !== "" && 
-    $("#grid8").text().trim() !== "" && 
-    $("#grid9").text().trim() !== "" && 
-    $("#grid10").text().trim() !== "" && 
-    $("#grid11").text().trim() !== "" && 
-    $("#grid12").text().trim() !== "" && 
-    $("#grid13").text().trim() !== "" && 
-    $("#grid14").text().trim() !== "" && 
-    $("#grid15").text().trim() !== ""){
-            alert("Game over!")
-    } else if ($(`#grid${n}`).text().trim(" ") === "") {
+    if ($(`#grid${n}`).text().trim(" ") === "") {
         $(`#grid${n}`).append(`<section class="num2"><p>2</p></section>`)
-    } else {
-        addBlock();
     }
-    
 }
 
 // Event listener that adds new block everytime the key is lifted
@@ -91,6 +70,7 @@ $(document).on("keydown", (e) => {
     let grid13Num = $("#grid13").text().trim(" ");
     let grid14Num = $("#grid14").text().trim(" ");
     let grid15Num = $("#grid15").text().trim(" ");
+    // Contructor function that runs the decisions making on movement and combination
     function Combination (block1, block2, block3, block4, html1, html2, html3, html4) {
         this.addPlus = (one, two) => {
             return `<section class="num${parseInt(one) + parseInt(two)}"><p>${parseInt(one) + parseInt(two)}</p></section>`
@@ -140,7 +120,7 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html3.html(' ')
                     html3.append(this.addPlus(block2, block3))
-                };
+                }
             };
             if(this.allThree1) {
                 if(this.possibleFive) {
@@ -261,6 +241,7 @@ $(document).on("keydown", (e) => {
 
 const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
     // Two Matches
+    // Here
     if(block0 !== "" && block1 !== "" && block2 === "" && block3 === "" && block0 === block1) {
         $("#grid0").html(" ");
         $("#grid1").html(" ");
