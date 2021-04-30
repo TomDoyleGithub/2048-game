@@ -173,6 +173,10 @@ $(document).on("keydown", (e) => {
     const leftTwo = new Combination(grid7Num, grid6Num, grid5Num, grid4Num, inGrid7, inGrid6, inGrid5, inGrid4);
     const leftThree = new Combination(grid11Num, grid10Num, grid9Num, grid8Num, inGrid11, inGrid10, inGrid9, inGrid8);
     const leftFour = new Combination(grid15Num, grid14Num, grid13Num, grid12Num, inGrid15, inGrid14, inGrid13, inGrid12);
+    const upOne = new Combination(grid12Num, grid8Num, grid4Num, grid0Num, inGrid12, inGrid8, inGrid4, inGrid0);
+    const upTwo = new Combination(grid13Num, grid9Num, grid5Num, grid1Num, inGrid13, inGrid9, inGrid5, inGrid1);
+    const upThree = new Combination(grid14Num, grid10Num, grid6Num, grid2Num, inGrid14, inGrid10, inGrid6, inGrid2);
+    const upFour = new Combination(grid15Num, grid11Num, grid7Num, grid3Num, inGrid15, inGrid11, inGrid7, inGrid3);
     if(keyPress === "ArrowRight") {
         rightOne.runTest();
         rightTwo.runTest();
@@ -186,7 +190,10 @@ $(document).on("keydown", (e) => {
         leftFour.runTest();
     }
     if(keyPress === "ArrowUp") {
-        
+        upOne.runTest();
+        upTwo.runTest();
+        upThree.runTest();
+        upFour.runTest();
     }
     if(keyPress === "ArrowDown") {
         
