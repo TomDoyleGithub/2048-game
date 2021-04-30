@@ -56,6 +56,7 @@ $(document).on("keyup", (e) => {
 
 // Main keydown event listener
 $(document).on("keydown", (e) => {
+    e.preventDefault();
     let keyPress = e.originalEvent.key;
     // List of html variables and value variables
     let inGrid0 = $("#grid0");
@@ -104,6 +105,7 @@ $(document).on("keydown", (e) => {
         this.possibleThree = block1 === block2;
         this.possibleFour = block3 === block4;
         this.possibleFive = block2 === block3;
+        this.possibleSix = block2 === block4;
         this.runTest = () => {
             if(this.allFours) {
                 if(this.possibleOne) {
@@ -174,6 +176,25 @@ $(document).on("keydown", (e) => {
                     html3.append(this.addPlus(block2, block3))
                 }
             }
+            if(this.allThree3) {
+                if(this.possibleSix) {
+                    html4.html(' ')
+                    html2.html(' ')
+                    html3.append(html1.html())
+                    html1.html(' ')
+                    html4.append(this.addPlus(block2, block4))
+                } else if(this.possibleThree) {
+                    html3.html(' ')
+                    html1.html(' ')
+                    html2.html(' ')
+                    html3.append(this.addPlus(block1, block2))
+                } else {
+                    html3.append(html2.html())
+                    html2.html(' ')
+                    html2.append(html1.html())
+                    html1.html(' ')
+                }
+            }
         };
 
     }
@@ -226,23 +247,7 @@ $(document).on("keydown", (e) => {
 // Function that slides the blocks to the right on row one
 const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
     // Threes
-    if(block0 !== "" && block1 !== "" && block2 === "" && block3 !== "" && block1 == block3) {
-        $("#grid3").html(" ");
-        $("#grid3").append(`<section class="num${parseInt(block1) + parseInt(block3)}"><p>${parseInt(block1) + parseInt(block3)}</p></section>`);
-        $("#grid2").append(html0)
-        $("#grid0").html(" ");
-        $("#grid1").html(" ");
-    } else if (block0 !== "" && block1 !== "" && block2 === "" && block3 !== "" && block0 == block1) {
-        $("#grid2").html(" ");
-        $("#grid2").append(`<section class="num${parseInt(block0) + parseInt(block1)}"><p>${parseInt(block0) + parseInt(block1)}</p></section>`);
-        $("#grid0").html(" ");
-        $("#grid1").html(" ");
-    } else if (block0 !== "" && block1 !== "" && block2 === "" && block3 !== "") {
-        $("#grid2").append(html1)
-        $("#grid1").html(" ");
-        $("#grid1").append(html0)
-        $("#grid0").html(" ");
-    }
+    // HERE
     if(block0 !== "" && block1 === "" && block2 !== "" && block3 !== "" && block2 == block3) {
         $("#grid3").html(" ");
         $("#grid2").html(" ");
