@@ -165,16 +165,33 @@ $(document).on("keydown", (e) => {
 
     }
 
-    const rowOne = new Combination(grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3);
-    const rowTwo = new Combination(grid4Num, grid5Num, grid6Num, grid7Num, inGrid4, inGrid5, inGrid6, inGrid7);
-    const rowThree = new Combination(grid8Num, grid9Num, grid10Num, grid11Num, inGrid8, inGrid9, inGrid10, inGrid11);
-    const rowFour = new Combination(grid12Num, grid13Num, grid14Num, grid15Num, inGrid12, inGrid13, inGrid14, inGrid15);
+    const rightOne = new Combination(grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3);
+    const rightTwo = new Combination(grid4Num, grid5Num, grid6Num, grid7Num, inGrid4, inGrid5, inGrid6, inGrid7);
+    const rightThree = new Combination(grid8Num, grid9Num, grid10Num, grid11Num, inGrid8, inGrid9, inGrid10, inGrid11);
+    const rightFour = new Combination(grid12Num, grid13Num, grid14Num, grid15Num, inGrid12, inGrid13, inGrid14, inGrid15);
+    const leftOne = new Combination(grid3Num, grid2Num, grid1Num, grid0Num, inGrid3, inGrid2, inGrid1, inGrid0);
+    const leftTwo = new Combination(grid7Num, grid6Num, grid5Num, grid4Num, inGrid7, inGrid6, inGrid5, inGrid4);
+    const leftThree = new Combination(grid11Num, grid10Num, grid9Num, grid8Num, inGrid11, inGrid10, inGrid9, inGrid8);
+    const leftFour = new Combination(grid15Num, grid14Num, grid13Num, grid12Num, inGrid15, inGrid14, inGrid13, inGrid12);
     if(keyPress === "ArrowRight") {
-        rowOne.runTest();
-        rowTwo.runTest();
-        rowThree.runTest();
-        rowFour.runTest();
+        rightOne.runTest();
+        rightTwo.runTest();
+        rightThree.runTest();
+        rightFour.runTest();
     }
+    if(keyPress === "ArrowLeft") {
+        leftOne.runTest();
+        leftTwo.runTest();
+        leftThree.runTest();
+        leftFour.runTest();
+    }
+    if(keyPress === "ArrowUp") {
+        
+    }
+    if(keyPress === "ArrowDown") {
+        
+    }
+
     
    
 })
