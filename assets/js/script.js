@@ -43,9 +43,10 @@ let gameOver = () => {
     }
 }
 // Recursion Function that adds new blocks eveytime an arrow key is pressed
+let combine = true;
 let addBlock = () => {
     let n = Math.floor(Math.random() * 16)
-    if ($(`#grid${n}`).text().trim(" ") === "") {
+    if ($(`#grid${n}`).text().trim(" ") === "" && combine === true) {
         $(`#grid${n}`).append(`<section class="num2"><p>2</p></section>`)
     }
 }
@@ -104,6 +105,7 @@ $(document).on("keydown", (e) => {
         this.runTest = () => {
             if(this.allFours) {
                 if(this.possibleOne) {
+                    combine = true;
                     html1.html(' ')
                     html2.html(' ')
                     html3.html(' ')
@@ -113,6 +115,7 @@ $(document).on("keydown", (e) => {
                     simpleAdd(block1, block2);
                     simpleAdd(block3, block4);
                 } else if (this.possibleTwo) {
+                    combine = true;
                     html3.html(' ')
                     html2.html(' ')
                     html2.append(html1.html());
@@ -120,11 +123,13 @@ $(document).on("keydown", (e) => {
                     html3.append(this.addPlus(block2, block3))
                     simpleAdd(block2, block3);
                 } else if (this.possibleThree) {
+                    combine = true;
                     html1.html(' ')
                     html2.html(' ')
                     html2.append(this.addPlus(block1, block2))
                     simpleAdd(block1, block2);
                 } else if (this.possibleFour) {
+                    combine = true;
                     html3.html(' ')
                     html3.append(html2.html())
                     html2.html(' ')
@@ -134,16 +139,21 @@ $(document).on("keydown", (e) => {
                     html4.append(this.addPlus(block3, block4));
                     simpleAdd(block3, block4);
                 } else if (this.possibleFive) {
+                    combine = true;
                     html2.html(' ')
                     html2.append(html1.html())
                     html1.html(' ')
                     html3.html(' ')
                     html3.append(this.addPlus(block2, block3))
                     simpleAdd(block2, block3);
+                } else {
+                    combine = false;
                 }
             };
             if(this.allThree1) {
+                combine = false;
                 if(this.possibleFive) {
+                    combine = true;
                     html2.html(' ')
                     html3.html(' ')
                     html3.append(html1.html())
@@ -151,6 +161,7 @@ $(document).on("keydown", (e) => {
                     html4.append(this.addPlus(block2, block3))
                     simpleAdd(block2, block3);
                 } else if (this.possibleThree) {
+                    combine = true;
                     html1.html(' ')
                     html2.html(' ')
                     html4.append(html3.html())
@@ -164,10 +175,12 @@ $(document).on("keydown", (e) => {
                     html2.html(' ')
                     html2.append(html1.html())
                     html1.html(' ')
+                    combine = true;
                 };
             };
             if(this.allThree2) {
                 if(this.possibleFour) {
+                    combine = true;
                     html3.html(' ')
                     html4.html(' ')
                     html3.append(html2.html())
@@ -175,14 +188,19 @@ $(document).on("keydown", (e) => {
                     html4.append(this.addPlus(block3, block4))
                     simpleAdd(block3, block4);
                 } else if (this.possibleFive) {
+                    combine = true;
                     html2.html(' ')
                     html3.html(' ')
                     html3.append(this.addPlus(block2, block3))
                     simpleAdd(block2, block3);
+                } else {
+                    combine = false;
                 }
             };
             if(this.allThree3) {
+                combine = false;
                 if(this.possibleSix) {
+                    combine = true;
                     html4.html(' ')
                     html2.html(' ')
                     html3.append(html1.html())
@@ -190,12 +208,14 @@ $(document).on("keydown", (e) => {
                     html4.append(this.addPlus(block2, block4))
                     simpleAdd(block2, block4);
                 } else if(this.possibleThree) {
+                    combine = true;
                     html3.html(' ')
                     html1.html(' ')
                     html2.html(' ')
                     html3.append(this.addPlus(block1, block2))
                     simpleAdd(block1, block2);
                 } else {
+                    combine = true;
                     html3.append(html2.html())
                     html2.html(' ')
                     html2.append(html1.html())
@@ -203,7 +223,9 @@ $(document).on("keydown", (e) => {
                 }
             }
             if(this.allThree4) {
+                combine = false;
                 if(this.possibleFour) {
+                    combine = true;
                     html4.html(' ')
                     html3.html(' ')
                     html3.append(html1.html())
@@ -211,22 +233,27 @@ $(document).on("keydown", (e) => {
                     html4.append(this.addPlus(block3, block4))
                     simpleAdd(block3, block4);
                 } else if(this.possibleSeven) {
+                    combine = true;
                     html3.html(' ')
                     html1.html(' ')
                     html3.append(this.addPlus(block1, block3))
                     simpleAdd(block1, block3);
                 } else {
+                    combine = true;
                     html2.append(html1.html())
                     html1.html(' ')
                 }
             };
             if(this.allTwo1) {
+                combine = false;
                 if(this.possibleThree) {
+                    combine = true;
                     html1.html(' ')
                     html2.html(' ')
                     html4.append(this.addPlus(block1, block2))
                     simpleAdd(block1, block2);
                 } else {
+                    combine = true;
                     html4.append(html2.html())
                     html2.html(' ')
                     html3.append(html1.html())
@@ -234,12 +261,15 @@ $(document).on("keydown", (e) => {
                 }
             }
             if(this.allTwo2) {
+                combine = false;
                 if(this.possibleFive) {
+                    combine = true;
                     html2.html(' ')
                     html3.html(' ')
                     html4.append(this.addPlus(block2, block3))
                     simpleAdd(block2, block3);
                 } else {
+                    combine = true;
                     html4.append(html3.html())
                     html3.html(' ')
                     html3.append(html2.html())
@@ -247,7 +277,9 @@ $(document).on("keydown", (e) => {
                 }
             }
             if(this.allTwo3) {
+                combine = false;
                 if(this.possibleFour) {
+                    combine = true;
                     html3.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block3, block4))
@@ -255,34 +287,43 @@ $(document).on("keydown", (e) => {
                 }
             }
             if(this.allTwo4) {
+                combine = false;
                 if(this.possibleEight) {
+                    combine = true;
                     html1.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block1, block4))
                     simpleAdd(block1, block4);
                 } else {
+                    combine = true;
                     html3.append(html1.html())
                     html1.html(' ')
                 }
             }
             if(this.allTwo5) {
+                combine = false;
                 if(this.possibleSix) {
+                    combine = true;
                     html2.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block2, block4))
                     simpleAdd(block2, block4);
                 } else {
+                    combine = true;
                     html3.append(html2.html())
                     html2.html(' ')
                 }
             }
             if(this.allTwo6) {
+                combine = false;
                 if(this.possibleSeven) {
+                    combine = true;
                     html1.html(' ')
                     html3.html(' ')
                     html4.append(this.addPlus(block1, block3))
                     simpleAdd(block1, block3);
                 } else {
+                    combine = true;
                     html4.append(html3.html())
                     html3.html(' ')
                     html3.append(html1.html())
@@ -290,16 +331,25 @@ $(document).on("keydown", (e) => {
                 }
             }
             if(this.allOne1) {
+                combine = true;
                 html4.append(html3.html())
                 html3.html(' ')
+            } else {
+                combine = false;
             }
             if(this.allOne2) {
+                combine = true;
                 html4.append(html2.html())
                 html2.html(' ')
+            } else {
+                combine = false;
             }
             if(this.allOne3) {
+                combine = true;
                 html4.append(html1.html())
                 html1.html(' ')
+            } else {
+                combine = false;
             }
         };
 
