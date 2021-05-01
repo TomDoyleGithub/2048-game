@@ -37,7 +37,7 @@ $(document).on("keyup", (e) => {
 $(document).on("keydown", (e) => {
     e.preventDefault();
     let keyPress = e.originalEvent.key;
-    // Instead of writing endless variables, I looped throught the values and assigned them to Array Destructors
+    // Instead of writing endless variables, I looped through the values and assigned them to Array Destructors
     let varArr = [];
     let arrTrim = [];
     for(let j = 0; j < 16; j++) {varArr.push($(`#grid${j}`))};
