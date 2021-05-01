@@ -48,6 +48,8 @@ let addBlock = () => {
     let n = Math.floor(Math.random() * 16)
     if ($(`#grid${n}`).text().trim(" ") === "" && combine === true) {
         $(`#grid${n}`).append(`<section class="num2"><p>2</p></section>`)
+    } else {
+        addBlock();
     }
 }
 
