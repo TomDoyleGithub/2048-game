@@ -61,6 +61,10 @@ $(document).on("keydown", (e) => {
         this.allTwo5 = block1 === "" && block2 !== "" && block3 === "" && block4 !== "";
         this.allTwo6 = block1 !== "" && block2 === "" && block3 !== "" && block4 === "";
         // 
+        this.allOne1 = block1 === "" && block2 === "" && block3 !== "" && block4 === "";
+        this.allOne2 = block1 === "" && block2 !== "" && block3 === "" && block4 === "";
+        this.allOne3 = block1 !== "" && block2 === "" && block3 === "" && block4 === "";
+        // 
         this.possibleOne = block1 === block2 && block3 === block4;
         this.possibleTwo = block1 === block2 && block2 === block3;
         this.possibleThree = block1 === block2;
@@ -237,6 +241,18 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                 }
             }
+            if(this.allOne1) {
+                html4.append(html3.html())
+                html3.html(' ')
+            }
+            if(this.allOne2) {
+                html4.append(html2.html())
+                html2.html(' ')
+            }
+            if(this.allOne3) {
+                html4.append(html1.html())
+                html1.html(' ')
+            }
         };
 
     }
@@ -285,21 +301,3 @@ $(document).on("keydown", (e) => {
         downFour.runTest();
     }
 })
-
-
-const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
-    // Here
-    if(block0 === "" && block1 === "" && block2 !== "" && block3 === "") {
-        $("#grid3").append(html2);
-        $("#grid2").html(" ")
-    }
-    if(block0 === "" && block1 !== "" && block2 === "" && block3 === "") {
-        $("#grid3").append(html1);
-        $("#grid1").html(" ")
-    }
-    if(block0 !== "" && block1 === "" && block2 === "" && block3 === "") {
-        $("#grid3").append(html0);
-        $("#grid0").html(" ")
-    }
-}
-
