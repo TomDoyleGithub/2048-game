@@ -14,6 +14,12 @@ let startAddBlock = () => {
         $(`#grid${j}`).append(`<section class="num2"><p>2</p></section>`)
     }
 }
+let score = 0;
+    let simpleAdd = (num1, num2) => {
+        let addNumber = parseInt(num1) + parseInt(num2);
+        score = score + addNumber;
+        $("#score").html(score);
+    }
 
 // Recursion Function that adds new blocks eveytime an arrow key is pressed
 let addBlock = () => {
@@ -48,6 +54,7 @@ $(document).on("keydown", (e) => {
         this.addPlus = (one, two) => {
             return `<section class="num${parseInt(one) + parseInt(two)}"><p>${parseInt(one) + parseInt(two)}</p></section>`
         };
+        
         this.allFours = block1 !== "" && block2 !== "" && block3 !== "" && block4 !== "";
         this.allThree1 = block1 !== "" && block2 !== "" && block3 !== "" && block4 === "";
         this.allThree2 = block1 === "" && block2 !== "" && block3 !== "" && block4 !== "";
@@ -82,16 +89,20 @@ $(document).on("keydown", (e) => {
                     html4.html(' ')
                     html3.append(this.addPlus(block1, block2))
                     html4.append(this.addPlus(block3, block4))
+                    simpleAdd(block1, block2);
+                    simpleAdd(block3, block4);
                 } else if (this.possibleTwo) {
                     html3.html(' ')
                     html2.html(' ')
                     html2.append(html1.html());
                     html1.html(' ')
                     html3.append(this.addPlus(block2, block3))
+                    simpleAdd(block2, block3);
                 } else if (this.possibleThree) {
                     html1.html(' ')
                     html2.html(' ')
                     html2.append(this.addPlus(block1, block2))
+                    simpleAdd(block1, block2);
                 } else if (this.possibleFour) {
                     html3.html(' ')
                     html3.append(html2.html())
@@ -100,12 +111,14 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block3, block4));
+                    simpleAdd(block3, block4);
                 } else if (this.possibleFive) {
                     html2.html(' ')
                     html2.append(html1.html())
                     html1.html(' ')
                     html3.html(' ')
                     html3.append(this.addPlus(block2, block3))
+                    simpleAdd(block2, block3);
                 }
             };
             if(this.allThree1) {
@@ -115,12 +128,14 @@ $(document).on("keydown", (e) => {
                     html3.append(html1.html())
                     html1.html(' ')
                     html4.append(this.addPlus(block2, block3))
+                    simpleAdd(block2, block3);
                 } else if (this.possibleThree) {
                     html1.html(' ')
                     html2.html(' ')
                     html4.append(html3.html())
                     html3.html(' ')
                     html3.append(this.addPlus(block1, block2))
+                    simpleAdd(block1, block2);
                 } else {
                     html4.append(html3.html())
                     html3.html(' ')
@@ -137,10 +152,12 @@ $(document).on("keydown", (e) => {
                     html3.append(html2.html())
                     html2.html(' ')
                     html4.append(this.addPlus(block3, block4))
+                    simpleAdd(block3, block4);
                 } else if (this.possibleFive) {
                     html2.html(' ')
                     html3.html(' ')
                     html3.append(this.addPlus(block2, block3))
+                    simpleAdd(block2, block3);
                 }
             };
             if(this.allThree3) {
@@ -150,11 +167,13 @@ $(document).on("keydown", (e) => {
                     html3.append(html1.html())
                     html1.html(' ')
                     html4.append(this.addPlus(block2, block4))
+                    simpleAdd(block2, block4);
                 } else if(this.possibleThree) {
                     html3.html(' ')
                     html1.html(' ')
                     html2.html(' ')
                     html3.append(this.addPlus(block1, block2))
+                    simpleAdd(block1, block2);
                 } else {
                     html3.append(html2.html())
                     html2.html(' ')
@@ -169,10 +188,12 @@ $(document).on("keydown", (e) => {
                     html3.append(html1.html())
                     html1.html(' ')
                     html4.append(this.addPlus(block3, block4))
+                    simpleAdd(block3, block4);
                 } else if(this.possibleSeven) {
                     html3.html(' ')
                     html1.html(' ')
                     html3.append(this.addPlus(block1, block3))
+                    simpleAdd(block1, block3);
                 } else {
                     html2.append(html1.html())
                     html1.html(' ')
@@ -183,6 +204,7 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html2.html(' ')
                     html4.append(this.addPlus(block1, block2))
+                    simpleAdd(block1, block2);
                 } else {
                     html4.append(html2.html())
                     html2.html(' ')
@@ -195,6 +217,7 @@ $(document).on("keydown", (e) => {
                     html2.html(' ')
                     html3.html(' ')
                     html4.append(this.addPlus(block2, block3))
+                    simpleAdd(block2, block3);
                 } else {
                     html4.append(html3.html())
                     html3.html(' ')
@@ -207,6 +230,7 @@ $(document).on("keydown", (e) => {
                     html3.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block3, block4))
+                    simpleAdd(block3, block4);
                 }
             }
             if(this.allTwo4) {
@@ -214,6 +238,7 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block1, block4))
+                    simpleAdd(block1, block4);
                 } else {
                     html3.append(html1.html())
                     html1.html(' ')
@@ -224,6 +249,7 @@ $(document).on("keydown", (e) => {
                     html2.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block2, block4))
+                    simpleAdd(block2, block4);
                 } else {
                     html3.append(html2.html())
                     html2.html(' ')
@@ -234,6 +260,7 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html3.html(' ')
                     html4.append(this.addPlus(block1, block3))
+                    simpleAdd(block1, block3);
                 } else {
                     html4.append(html3.html())
                     html3.html(' ')
