@@ -1,4 +1,3 @@
-var popAudio = new Audio("./assets/sound/pop.m4a");
 $(".new-game").on("click", () => {
     startAddBlock()
 })
@@ -105,7 +104,6 @@ $(document).on("keydown", (e) => {
         this.runTest = () => {
             if(this.allFours) {
                 if(this.possibleOne) {
-                    popAudio.play();
                     html1.html(' ')
                     html2.html(' ')
                     html3.html(' ')
@@ -115,7 +113,6 @@ $(document).on("keydown", (e) => {
                     simpleAdd(block1, block2);
                     simpleAdd(block3, block4);
                 } else if (this.possibleTwo) {
-                    popAudio.play();
                     html3.html(' ')
                     html2.html(' ')
                     html2.append(html1.html());
@@ -123,13 +120,11 @@ $(document).on("keydown", (e) => {
                     html3.append(this.addPlus(block2, block3))
                     simpleAdd(block2, block3);
                 } else if (this.possibleThree) {
-                    popAudio.play();
                     html1.html(' ')
                     html2.html(' ')
                     html2.append(this.addPlus(block1, block2))
                     simpleAdd(block1, block2);
                 } else if (this.possibleFour) {
-                    popAudio.play();
                     html3.html(' ')
                     html3.append(html2.html())
                     html2.html(' ')
@@ -139,7 +134,6 @@ $(document).on("keydown", (e) => {
                     html4.append(this.addPlus(block3, block4));
                     simpleAdd(block3, block4);
                 } else if (this.possibleFive) {
-                    popAudio.play();
                     html2.html(' ')
                     html2.append(html1.html())
                     html1.html(' ')
@@ -150,7 +144,6 @@ $(document).on("keydown", (e) => {
             };
             if(this.allThree1) {
                 if(this.possibleFive) {
-                    popAudio.play();
                     html2.html(' ')
                     html3.html(' ')
                     html3.append(html1.html())
@@ -158,7 +151,6 @@ $(document).on("keydown", (e) => {
                     html4.append(this.addPlus(block2, block3))
                     simpleAdd(block2, block3);
                 } else if (this.possibleThree) {
-                    popAudio.play();
                     html1.html(' ')
                     html2.html(' ')
                     html4.append(html3.html())
@@ -176,7 +168,6 @@ $(document).on("keydown", (e) => {
             };
             if(this.allThree2) {
                 if(this.possibleFour) {
-                    popAudio.play();
                     html3.html(' ')
                     html4.html(' ')
                     html3.append(html2.html())
@@ -184,7 +175,6 @@ $(document).on("keydown", (e) => {
                     html4.append(this.addPlus(block3, block4))
                     simpleAdd(block3, block4);
                 } else if (this.possibleFive) {
-                    popAudio.play();
                     html2.html(' ')
                     html3.html(' ')
                     html3.append(this.addPlus(block2, block3))
@@ -193,7 +183,6 @@ $(document).on("keydown", (e) => {
             };
             if(this.allThree3) {
                 if(this.possibleSix) {
-                    popAudio.play();
                     html4.html(' ')
                     html2.html(' ')
                     html3.append(html1.html())
@@ -201,7 +190,6 @@ $(document).on("keydown", (e) => {
                     html4.append(this.addPlus(block2, block4))
                     simpleAdd(block2, block4);
                 } else if(this.possibleThree) {
-                    popAudio.play();
                     html3.html(' ')
                     html1.html(' ')
                     html2.html(' ')
@@ -216,7 +204,6 @@ $(document).on("keydown", (e) => {
             }
             if(this.allThree4) {
                 if(this.possibleFour) {
-                    popAudio.play();
                     html4.html(' ')
                     html3.html(' ')
                     html3.append(html1.html())
@@ -224,7 +211,6 @@ $(document).on("keydown", (e) => {
                     html4.append(this.addPlus(block3, block4))
                     simpleAdd(block3, block4);
                 } else if(this.possibleSeven) {
-                    popAudio.play();
                     html3.html(' ')
                     html1.html(' ')
                     html3.append(this.addPlus(block1, block3))
@@ -236,7 +222,6 @@ $(document).on("keydown", (e) => {
             };
             if(this.allTwo1) {
                 if(this.possibleThree) {
-                    popAudio.play();
                     html1.html(' ')
                     html2.html(' ')
                     html4.append(this.addPlus(block1, block2))
@@ -250,7 +235,6 @@ $(document).on("keydown", (e) => {
             }
             if(this.allTwo2) {
                 if(this.possibleFive) {
-                    popAudio.play();
                     html2.html(' ')
                     html3.html(' ')
                     html4.append(this.addPlus(block2, block3))
@@ -264,7 +248,6 @@ $(document).on("keydown", (e) => {
             }
             if(this.allTwo3) {
                 if(this.possibleFour) {
-                    popAudio.play();
                     html3.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block3, block4))
@@ -273,7 +256,6 @@ $(document).on("keydown", (e) => {
             }
             if(this.allTwo4) {
                 if(this.possibleEight) {
-                    popAudio.play();
                     html1.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block1, block4))
@@ -285,7 +267,6 @@ $(document).on("keydown", (e) => {
             }
             if(this.allTwo5) {
                 if(this.possibleSix) {
-                    popAudio.play();
                     html2.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block2, block4))
@@ -297,7 +278,6 @@ $(document).on("keydown", (e) => {
             }
             if(this.allTwo6) {
                 if(this.possibleSeven) {
-                    popAudio.play();
                     html1.html(' ')
                     html3.html(' ')
                     html4.append(this.addPlus(block1, block3))
