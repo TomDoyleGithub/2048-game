@@ -15,13 +15,34 @@ let startAddBlock = () => {
         $(`#grid${j}`).append(`<section class="num2"><p>2</p></section>`)
     }
 }
+// Score function
 let score = 0;
     let simpleAdd = (num1, num2) => {
         let addNumber = parseInt(num1) + parseInt(num2);
         score = score + addNumber;
         $("#score").html(score);
     }
-
+let gameOver = () => {
+    if ($("#grid0").text().trim() !== "" && 
+    $("#grid1").text().trim() !== "" && 
+    $("#grid2").text().trim() !== "" && 
+    $("#grid3").text().trim() !== "" && 
+    $("#grid4").text().trim() !== "" && 
+    $("#grid5").text().trim() !== "" && 
+    $("#grid6").text().trim() !== "" && 
+    $("#grid7").text().trim() !== "" && 
+    $("#grid8").text().trim() !== "" && 
+    $("#grid9").text().trim() !== "" && 
+    $("#grid10").text().trim() !== "" && 
+    $("#grid11").text().trim() !== "" && 
+    $("#grid12").text().trim() !== "" && 
+    $("#grid13").text().trim() !== "" && 
+    $("#grid14").text().trim() !== "" && 
+    $("#grid15").text().trim() !== ""){
+            alert("Game over!")
+            startAddBlock();
+    }
+}
 // Recursion Function that adds new blocks eveytime an arrow key is pressed
 let addBlock = () => {
     let n = Math.floor(Math.random() * 16)
@@ -328,23 +349,27 @@ $(document).on("keydown", (e) => {
         rightTwo.runTest();
         rightThree.runTest();
         rightFour.runTest();
+        gameOver();
     }
     if(keyPress === "ArrowLeft") {
         leftOne.runTest();
         leftTwo.runTest();
         leftThree.runTest();
         leftFour.runTest();
+        gameOver();
     }
     if(keyPress === "ArrowUp") {
         upOne.runTest();
         upTwo.runTest();
         upThree.runTest();
         upFour.runTest();
+        gameOver();
     }
     if(keyPress === "ArrowDown") {
         downOne.runTest();
         downTwo.runTest();
         downThree.runTest();
         downFour.runTest();
+        gameOver();
     }
 })
