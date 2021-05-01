@@ -242,7 +242,7 @@
     font-size: 45px;
     color: white;
     position: relative;
-    animation: size 200ms ease;
+    animation: size2 200ms ease;
     transition: all 200ms ease-in-out;
 }
 
