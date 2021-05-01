@@ -14,6 +14,7 @@ let startAddBlock = () => {
         $(`#grid${j}`).append(`<section class="num2"><p>2</p></section>`)
     }
 }
+startAddBlock()
 // Score function
 let score = 0;
     let simpleAdd = (num1, num2) => {
@@ -48,7 +49,7 @@ let addBlock = () => {
     let n = Math.floor(Math.random() * 16)
     if ($(`#grid${n}`).text().trim(" ") === "" && combine === true) {
         $(`#grid${n}`).append(`<section class="num2"><p>2</p></section>`)
-    } else {
+    } else if ($(`#grid${n}`).text().trim(" ") !== "" && combine === true) {
         addBlock();
     }
 }
