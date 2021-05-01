@@ -239,7 +239,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
+    font-size: 45px;
     color: white;
     position: relative;
     animation: size 200ms ease;
@@ -254,10 +254,55 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
+    font-size: 45px;
     color: white;
     position: relative;
-    animation: size 200ms ease;
+    animation: size2 200ms ease;
+    transition: all 200ms ease-in-out;
+}
+
+.num512 {
+    background-color: var(--one-hundred-twenty-eight);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    color: white;
+    position: relative;
+    animation: size2 200ms ease;
+    transition: all 200ms ease-in-out;
+}
+
+.num1024 {
+    background-color: var(--final-yellow);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 37px;
+    color: white;
+    position: relative;
+    animation: size3 200ms ease;
+    transition: all 200ms ease-in-out;
+}
+
+.num2048 {
+    background-color: var(--final-yellow);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 37px;
+    color: white;
+    position: relative;
+    animation: size3 200ms ease;
     transition: all 200ms ease-in-out;
 }
 
@@ -274,6 +319,31 @@
     }
 }
 
+@keyframes size2 {
+    0% {
+        font-size: 10px;
+        height: 30%;
+        width: 30%;
+    }
+    100% {
+        font-size: 45px;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@keyframes size3 {
+    0% {
+        font-size: 10px;
+        height: 30%;
+        width: 30%;
+    }
+    100% {
+        font-size: 37px;
+        height: 100%;
+        width: 100%;
+    }
+}
 .number-change {
     font-size: 25px;
     color: white;
