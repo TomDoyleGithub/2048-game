@@ -331,25 +331,16 @@ $(document).on("keydown", (e) => {
                 }
             }
             if(this.allOne1) {
-                combine = true;
                 html4.append(html3.html())
                 html3.html(' ')
-            } else {
-                combine = false;
             }
             if(this.allOne2) {
-                combine = true;
                 html4.append(html2.html())
                 html2.html(' ')
-            } else {
-                combine = false;
             }
             if(this.allOne3) {
-                combine = true;
                 html4.append(html1.html())
                 html1.html(' ')
-            } else {
-                combine = false;
             }
         };
 
