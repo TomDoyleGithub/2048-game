@@ -37,39 +37,14 @@ $(document).on("keyup", (e) => {
 $(document).on("keydown", (e) => {
     e.preventDefault();
     let keyPress = e.originalEvent.key;
-    // List of html variables and value variables
-    let inGrid0 = $("#grid0");
-    let inGrid1 = $("#grid1");
-    let inGrid2 = $("#grid2");
-    let inGrid3 = $("#grid3");
-    let inGrid4 = $("#grid4");
-    let inGrid5 = $("#grid5");
-    let inGrid6 = $("#grid6");
-    let inGrid7 = $("#grid7");
-    let inGrid8 = $("#grid8");
-    let inGrid9 = $("#grid9");
-    let inGrid10 = $("#grid10");
-    let inGrid11 = $("#grid11");
-    let inGrid12 = $("#grid12");
-    let inGrid13 = $("#grid13");
-    let inGrid14 = $("#grid14");
-    let inGrid15 = $("#grid15");
-    let grid0Num = $("#grid0").text().trim(" ");
-    let grid1Num = $("#grid1").text().trim(" ");
-    let grid2Num = $("#grid2").text().trim(" ");
-    let grid3Num = $("#grid3").text().trim(" ");
-    let grid4Num = $("#grid4").text().trim(" ");
-    let grid5Num = $("#grid5").text().trim(" ");
-    let grid6Num = $("#grid6").text().trim(" ");
-    let grid7Num = $("#grid7").text().trim(" ");
-    let grid8Num = $("#grid8").text().trim(" ");
-    let grid9Num = $("#grid9").text().trim(" ");
-    let grid10Num = $("#grid10").text().trim(" ");
-    let grid11Num = $("#grid11").text().trim(" ");
-    let grid12Num = $("#grid12").text().trim(" ");
-    let grid13Num = $("#grid13").text().trim(" ");
-    let grid14Num = $("#grid14").text().trim(" ");
-    let grid15Num = $("#grid15").text().trim(" ");
+    // Instead of writing endless variables, I looped throught the values and assigned them to Array Destructors
+    let varArr = [];
+    let arrTrim = [];
+    for(let j = 0; j < 16; j++) {varArr.push($(`#grid${j}`))};
+    for(let k = 0; k < 16; k++) {arrTrim.push($(`#grid${k}`).text().trim(" "))};
+    const [inGrid0, inGrid1, inGrid2, inGrid3, inGrid4, inGrid5, inGrid6, inGrid7, inGrid8, inGrid9, inGrid10, inGrid11, inGrid12, inGrid13, inGrid14, inGrid15] = varArr;
+    const [grid0Num, grid1Num, grid2Num, grid3Num, grid4Num, grid5Num, grid6Num, grid7Num, grid8Num, grid9Num, grid10Num, grid11Num, grid12Num, grid13Num, grid14Num, grid15Num, ] = arrTrim;
+    
     // Contructor function that runs the decisions making on movement and combination
     function Combination (block1, block2, block3, block4, html1, html2, html3, html4) {
         this.addPlus = (one, two) => {
