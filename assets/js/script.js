@@ -2,8 +2,6 @@ $(".new-game").on("click", () => {
     startAddBlock()
 })
 
-
-
 // Function that adds blocks to page
 let startAddBlock = () => {
     let i = Math.floor(Math.random() * 16)
@@ -55,6 +53,14 @@ $(document).on("keydown", (e) => {
         this.allThree2 = block1 === "" && block2 !== "" && block3 !== "" && block4 !== "";
         this.allThree3 = block1 !== "" && block2 !== "" && block3 === "" && block4 !== "";
         this.allThree4 = block1 !== "" && block2 === "" && block3 !== "" && block4 !== "";
+        // 
+        this.allTwo1 = block1 !== "" && block2 !== "" && block3 === "" && block4 === "";
+        this.allTwo2 = block1 === "" && block2 !== "" && block3 !== "" && block4 === "";
+        this.allTwo3 = block1 === "" && block2 === "" && block3 !== "" && block4 !== "";
+        this.allTwo4 = block1 !== "" && block2 === "" && block3 === "" && block4 !== "";
+        this.allTwo5 = block1 === "" && block2 !== "" && block3 === "" && block4 !== "";
+        this.allTwo6 = block1 !== "" && block2 === "" && block3 !== "" && block4 === "";
+        // 
         this.possibleOne = block1 === block2 && block3 === block4;
         this.possibleTwo = block1 === block2 && block2 === block3;
         this.possibleThree = block1 === block2;
@@ -62,6 +68,7 @@ $(document).on("keydown", (e) => {
         this.possibleFive = block2 === block3;
         this.possibleSix = block2 === block4;
         this.possibleSeven = block1 === block3;
+        this.possibleEight = block1 === block4;
         this.runTest = () => {
             if(this.allFours) {
                 if(this.possibleOne) {
@@ -167,10 +174,74 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                 }
             };
+            if(this.allTwo1) {
+                if(this.possibleThree) {
+                    html1.html(' ')
+                    html2.html(' ')
+                    html4.append(this.addPlus(block1, block2))
+                } else {
+                    html4.append(html2.html())
+                    html2.html(' ')
+                    html3.append(html1.html())
+                    html1.html(' ')
+                }
+            }
+            if(this.allTwo2) {
+                if(this.possibleFive) {
+                    html2.html(' ')
+                    html3.html(' ')
+                    html4.append(this.addPlus(block2, block3))
+                } else {
+                    html4.append(html3.html())
+                    html3.html(' ')
+                    html3.append(html2.html())
+                    html2.html(' ')
+                }
+            }
+            if(this.allTwo3) {
+                if(this.possibleFour) {
+                    html3.html(' ')
+                    html4.html(' ')
+                    html4.append(this.addPlus(block3, block4))
+                }
+            }
+            if(this.allTwo4) {
+                if(this.possibleEight) {
+                    html1.html(' ')
+                    html4.html(' ')
+                    html4.append(this.addPlus(block1, block4))
+                } else {
+                    html3.append(html1.html())
+                    html1.html(' ')
+                }
+            }
+            if(this.allTwo5) {
+                if(this.possibleSix) {
+                    html2.html(' ')
+                    html4.html(' ')
+                    html4.append(this.addPlus(block2, block4))
+                } else {
+                    html3.append(html2.html())
+                    html2.html(' ')
+                }
+            }
+            if(this.allTwo6) {
+                if(this.possibleSeven) {
+                    html1.html(' ')
+                    html3.html(' ')
+                    html4.append(this.addPlus(block1, block3))
+                } else {
+                    html4.append(html3.html())
+                    html3.html(' ')
+                    html3.append(html1.html())
+                    html1.html(' ')
+                }
+            }
         };
 
     }
 
+    // All constructor function calls
     const rightOne = new Combination(grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3);
     const rightTwo = new Combination(grid4Num, grid5Num, grid6Num, grid7Num, inGrid4, inGrid5, inGrid6, inGrid7);
     const rightThree = new Combination(grid8Num, grid9Num, grid10Num, grid11Num, inGrid8, inGrid9, inGrid10, inGrid11);
@@ -187,6 +258,8 @@ $(document).on("keydown", (e) => {
     const downTwo = new Combination(grid1Num, grid5Num, grid9Num, grid13Num, inGrid1, inGrid5, inGrid9, inGrid13);
     const downThree = new Combination(grid2Num, grid6Num, grid10Num, grid14Num, inGrid2, inGrid6, inGrid10, inGrid14);
     const downFour = new Combination(grid3Num, grid7Num, grid11Num, grid15Num, inGrid3, inGrid7, inGrid11, inGrid15);
+
+    // Runs the method in the constructor function depending on what key you press
     if(keyPress === "ArrowRight") {
         rightOne.runTest();
         rightTwo.runTest();
@@ -215,60 +288,7 @@ $(document).on("keydown", (e) => {
 
 
 const slideBlockRightRowOne = (block0, block1, block2, block3, html0, html1, html2, html3) => {
-    // Two Matches
     // Here
-    if(block0 !== "" && block1 !== "" && block2 === "" && block3 === "" && block0 === block1) {
-        $("#grid0").html(" ");
-        $("#grid1").html(" ");
-        $("#grid3").append(`<section class="num${parseInt(block0) + parseInt(block1)}"><p>${parseInt(block0) + parseInt(block1)}</p></section>`);
-    } else if (block0 !== "" && block1 !== "" && block2 === "" && block3 === "") {
-        $("#grid3").append(html1);
-        $("#grid1").html(" ")
-        $("#grid2").append(html0);
-        $("#grid0").html(" ")
-    }
-    if (block0 === "" && block1 !== "" && block2 !== "" && block3 === "" && block1 === block2) {
-        $("#grid1").html(" ");
-        $("#grid2").html(" ");
-        $("#grid3").append(`<section class="num${parseInt(block1) + parseInt(block2)}"><p>${parseInt(block1) + parseInt(block2)}</p></section>`);
-    } else if(block0 === "" && block1 !== "" && block2 !== "" && block3 === "") {
-        $("#grid3").append(html2);
-        $("#grid2").html(" ")
-        $("#grid2").append(html1);
-        $("#grid1").html(" ")
-    }
-    if (block0 === "" && block1 === "" && block2 !== "" && block3 !== "" && block2 === block3) {
-        $("#grid2").html(" ");
-        $("#grid3").html(" ");
-        $("#grid3").append(`<section class="num${parseInt(block2) + parseInt(block3)}"><p>${parseInt(block2) + parseInt(block3)}</p></section>`);
-    } 
-    if (block0 !== "" && block1 === "" && block2 === "" && block3 !== "" && block0 === block3) {
-        $("#grid0").html(" ")
-        $("#grid3").html(" ")
-        $("#grid3").append(`<section class="num${parseInt(block0) + parseInt(block3)}"><p>${parseInt(block0) + parseInt(block3)}</p></section>`);
-    } else if (block0 !== "" && block1 === "" && block2 === "" && block3 !== "") {
-        $("#grid0").html(" ")
-        $("#grid2").append(html0)
-    }
-    if(block0 === "" && block1 !== "" && block2 === "" && block3 !== "" && block1 === block3) {
-        $("#grid1").html(" ")
-        $("#grid3").html(" ")
-        $("#grid3").append(`<section class="num${parseInt(block1) + parseInt(block3)}"><p>${parseInt(block1) + parseInt(block3)}</p></section>`);
-    } else if (block0 === "" && block1 !== "" && block2 === "" && block3 !== "") {
-        $("#grid1").html(" ")
-        $("#grid2").append(html1)
-    }
-    if(block0 !== "" && block1 === "" && block2 !== "" && block3 === "" && block0 === block2) {
-        $("#grid0").html(" ")
-        $("#grid2").html(" ")
-        $("#grid3").append(`<section class="num${parseInt(block0) + parseInt(block2)}"><p>${parseInt(block0) + parseInt(block2)}</p></section>`);
-    } else if (block0 !== "" && block1 === "" && block2 !== "" && block3 === "") {
-        $("#grid3").append(html2)
-        $("#grid2").html(" ")
-        $("#grid2").append(html0)
-        $("#grid0").html(" ")
-    }
-    // Ones non matches
     if(block0 === "" && block1 === "" && block2 !== "" && block3 === "") {
         $("#grid3").append(html2);
         $("#grid2").html(" ")
