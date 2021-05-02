@@ -4,6 +4,9 @@ const clapAudio = new Audio("./assets/sound/clap.wav");
 const loseAudio = new Audio("./assets/sound/lose.wav");
 // Starts game when new game button is clicked
 $(".new-game").on("click", () => {
+    $(".game-content").css({"opacity": "100%"})
+    $(".game-over").css({"opacity": "0%"})
+    $(".play-again").css({"display": "none", "opacity": "0%", "cursor": "pointer"})
     score = 0;
     $('#score').html('0')
     startAddBlock()
