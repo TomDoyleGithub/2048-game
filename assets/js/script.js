@@ -39,8 +39,9 @@ let gameOver = () => {
     $("#grid13").text().trim() !== "" && 
     $("#grid14").text().trim() !== "" && 
     $("#grid15").text().trim() !== ""){
-            alert("Game over!")
-            startAddBlock();
+            $(".game-content").css("opacity", "40%")
+            $(".game-over").css("opacity", "100%")
+            $(".play-again").css({'display': 'block', 'opacity': '100%', 'cursor': 'pointer'})
     }
 }
 // Recursion Function that adds new blocks eveytime an arrow key is pressed

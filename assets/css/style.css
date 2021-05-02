@@ -21,6 +21,37 @@
     background: white;
 }
 
+.game-over {
+    position: absolute;
+    color: var(--dark-brown);
+    font-size: 60px;
+    top: 400px;
+    z-index: 20;
+    left: 50%;
+    cursor: default;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    opacity: 0%;
+    transition: all 3s ease-in-out;
+}
+
+.play-again {
+    position: absolute;
+    z-index: 20;
+    top: 520px;
+    left: 50%;
+    color: var(--tan);
+    font-size: 18px;
+    cursor: default;
+    background-color: var(--yurk-brown);
+    border-radius: 5px;
+    padding: 11px 20px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    opacity: 0%;
+    transition: opacity 3s ease-in-out;
+}
+
 /* Main title font */
 .font {
     font-family: proxima-nova, sans-serif;
@@ -97,9 +128,12 @@
 /* The content container that holds the game */
 .game-content {
     background-image: url(../images/background.svg);
+    opacity: 100%;
     border-radius: 5px;
     padding: 15px;
     position: relative;
+    cursor: default;
+    transition: all 3s ease-in-out;
 }
 
 .grid-game {
