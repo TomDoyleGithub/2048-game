@@ -1,4 +1,3 @@
-let snapAudio = new Audio("./assets/sound/snap.wav");
 let winAudio = new Audio("./assets/sound/win.wav");
 let clapAudio = new Audio("./assets/sound/clap.wav");
 let loseAudio = new Audio("./assets/sound/lose.wav");
@@ -137,7 +136,6 @@ $(document).on("keydown", (e) => {
                     html4.append(this.addPlus(block3, block4))
                     simpleAdd(block1, block2);
                     simpleAdd(block3, block4);
-                    snapAudio.play();
                 } else if (this.possibleTwo) {
                     combine = true;
                     html3.html(' ')
@@ -146,14 +144,12 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html3.append(this.addPlus(block2, block3))
                     simpleAdd(block2, block3);
-                    snapAudio.play();
                 } else if (this.possibleThree) {
                     combine = true;
                     html1.html(' ')
                     html2.html(' ')
                     html2.append(this.addPlus(block1, block2))
                     simpleAdd(block1, block2);
-                    snapAudio.play();
                 } else if (this.possibleFour) {
                     combine = true;
                     html3.html(' ')
@@ -163,7 +159,6 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block3, block4));
-                    snapAudio.play();
                     simpleAdd(block3, block4);
                 } else if (this.possibleFive) {
                     combine = true;
@@ -172,7 +167,6 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html3.html(' ')
                     html3.append(this.addPlus(block2, block3))
-                    snapAudio.play();
                     simpleAdd(block2, block3);
                 } else {
                     combine = false;
@@ -187,7 +181,6 @@ $(document).on("keydown", (e) => {
                     html3.append(html1.html())
                     html1.html(' ')
                     html4.append(this.addPlus(block2, block3))
-                    snapAudio.play();
                     simpleAdd(block2, block3);
                 } else if (this.possibleThree) {
                     combine = true;
@@ -196,7 +189,6 @@ $(document).on("keydown", (e) => {
                     html4.append(html3.html())
                     html3.html(' ')
                     html3.append(this.addPlus(block1, block2))
-                    snapAudio.play();
                     simpleAdd(block1, block2);
                 } else {
                     html4.append(html3.html())
@@ -216,14 +208,12 @@ $(document).on("keydown", (e) => {
                     html3.append(html2.html())
                     html2.html(' ')
                     html4.append(this.addPlus(block3, block4))
-                    snapAudio.play();
                     simpleAdd(block3, block4);
                 } else if (this.possibleFive) {
                     combine = true;
                     html2.html(' ')
                     html3.html(' ')
                     html3.append(this.addPlus(block2, block3))
-                    snapAudio.play();
                     simpleAdd(block2, block3);
                 } else {
                     combine = false;
@@ -238,7 +228,6 @@ $(document).on("keydown", (e) => {
                     html3.append(html1.html())
                     html1.html(' ')
                     html4.append(this.addPlus(block2, block4))
-                    snapAudio.play();
                     simpleAdd(block2, block4);
                 } else if(this.possibleThree) {
                     combine = true;
@@ -246,7 +235,6 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html2.html(' ')
                     html3.append(this.addPlus(block1, block2))
-                    snapAudio.play();
                     simpleAdd(block1, block2);
                 } else {
                     combine = true;
@@ -265,14 +253,12 @@ $(document).on("keydown", (e) => {
                     html3.append(html1.html())
                     html1.html(' ')
                     html4.append(this.addPlus(block3, block4))
-                    snapAudio.play();
                     simpleAdd(block3, block4);
                 } else if(this.possibleSeven) {
                     combine = true;
                     html3.html(' ')
                     html1.html(' ')
                     html3.append(this.addPlus(block1, block3))
-                    snapAudio.play();
                     simpleAdd(block1, block3);
                 } else {
                     combine = true;
@@ -287,7 +273,6 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html2.html(' ')
                     html4.append(this.addPlus(block1, block2))
-                    snapAudio.play();
                     simpleAdd(block1, block2);
                 } else {
                     combine = true;
@@ -304,7 +289,6 @@ $(document).on("keydown", (e) => {
                     html2.html(' ')
                     html3.html(' ')
                     html4.append(this.addPlus(block2, block3))
-                    snapAudio.play();
                     simpleAdd(block2, block3);
                 } else {
                     combine = true;
@@ -321,7 +305,6 @@ $(document).on("keydown", (e) => {
                     html3.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block3, block4))
-                    snapAudio.play();
                     simpleAdd(block3, block4);
                 }
             }
@@ -332,7 +315,6 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block1, block4))
-                    snapAudio.play();
                     simpleAdd(block1, block4);
                 } else {
                     combine = true;
@@ -347,7 +329,6 @@ $(document).on("keydown", (e) => {
                     html2.html(' ')
                     html4.html(' ')
                     html4.append(this.addPlus(block2, block4))
-                    snapAudio.play();
                     simpleAdd(block2, block4);
                 } else {
                     combine = true;
@@ -362,7 +343,6 @@ $(document).on("keydown", (e) => {
                     html1.html(' ')
                     html3.html(' ')
                     html4.append(this.addPlus(block1, block3))
-                    snapAudio.play();
                     simpleAdd(block1, block3);
                 } else {
                     combine = true;
