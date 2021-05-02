@@ -52,6 +52,16 @@
     transition: opacity 200ms ease-in-out;
 }
 
+.how-play {
+    border-top: 1px solid var(--ray-brown);
+    padding-top: 30px;
+    margin: 100px auto;
+    width: 500px;
+    line-height: 1.8rem;
+    font-size: 18px;
+    color: var(--dark-brown);
+}
+
 /* Main title font */
 .font {
     font-family: proxima-nova, sans-serif;
@@ -74,7 +84,7 @@
 /* The main background for the website */
 .background-container {
     background-color: var(--tan);
-    height: 825px;
+    height: 1000px;
 }
 
 /* The interface for all the game content */
