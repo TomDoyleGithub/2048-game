@@ -8,6 +8,8 @@ $(".play-again").on("click", () => {
     $(".game-content").css({"opacity": "100%"})
     $(".game-over").css({"opacity": "0%"})
     $(".play-again").css({"display": "none", "opacity": "0%", "cursor": "pointer"})
+    score = 0;
+    $('#score').html('0')
     startAddBlock();
 })
 
