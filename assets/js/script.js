@@ -41,6 +41,10 @@ let score = 0;
         let addNumber = parseInt(num1) + parseInt(num2);
         score = score + addNumber;
         $("#score").html(score);
+        let bestHtml = $("#best").text().trim();
+        if (parseInt(bestHtml) < score) {
+            $("#best").html(score)
+        }
     }
 
 // Function that displays game over
