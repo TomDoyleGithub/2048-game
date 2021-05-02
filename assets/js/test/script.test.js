@@ -1,0 +1,1 @@
+const javaScript = require('../script');
