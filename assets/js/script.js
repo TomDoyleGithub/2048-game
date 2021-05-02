@@ -1,6 +1,8 @@
-let winAudio = new Audio("./assets/sound/win.wav");
-let clapAudio = new Audio("./assets/sound/clap.wav");
-let loseAudio = new Audio("./assets/sound/lose.wav");
+// Audio variables
+const winAudio = new Audio("./assets/sound/win.wav");
+const clapAudio = new Audio("./assets/sound/clap.wav");
+const loseAudio = new Audio("./assets/sound/lose.wav");
+// Starts game when new game button is clicked
 $(".new-game").on("click", () => {
     score = 0;
     $('#score').html('0')
@@ -8,6 +10,7 @@ $(".new-game").on("click", () => {
     clapAudio.play();
 })
 
+// Starts the game again when the try again button is clicked
 $(".play-again").on("click", () => {
     $(".game-content").css({"opacity": "100%"})
     $(".game-over").css({"opacity": "0%"})
@@ -30,6 +33,7 @@ let startAddBlock = () => {
         $(`#grid${j}`).append(`<section class="num2"><p>2</p></section>`)
     }
 }
+// Function that adds random blocks when the game starts
 startAddBlock()
 // Score function
 let score = 0;
@@ -38,6 +42,8 @@ let score = 0;
         score = score + addNumber;
         $("#score").html(score);
     }
+
+// Function that displays game over
 let gameOver = () => {
     if ($("#grid0").text().trim() !== "" && 
     $("#grid1").text().trim() !== "" && 
@@ -59,9 +65,25 @@ let gameOver = () => {
             $(".grid-base").text(" ")
             $(".game-content").css("opacity", "40%")
             $(".game-over").css("opacity", "100%")
+            $(".game-over").html("Game over!")
             $(".play-again").css({'display': 'block', 'opacity': '100%', 'cursor': 'pointer'})
     }
 }
+
+// Function that displays game win
+let gameWin = () => {
+    for(let r = 0; r < 16; r ++) {
+        if($(`#grid${r}`).text().trim() == "2048") {
+            winAudio.play();
+            $(".grid-base").text(" ")
+            $(".game-content").css("opacity", "40%")
+            $(".game-over").css("opacity", "100%")
+            $(".game-over").html("You win!")
+            $(".play-again").css({'display': 'block', 'opacity': '100%', 'cursor': 'pointer'})
+        }
+    }
+}
+
 // Recursion Function that adds new blocks eveytime an arrow key is pressed
 let combine = true;
 let addBlock = () => {
@@ -396,6 +418,7 @@ $(document).on("keydown", (e) => {
         rightThree.runTest();
         rightFour.runTest();
         gameOver();
+        gameWin();
     }
     if(keyPress === "ArrowLeft") {
         leftOne.runTest();
@@ -403,6 +426,7 @@ $(document).on("keydown", (e) => {
         leftThree.runTest();
         leftFour.runTest();
         gameOver();
+        gameWin();
     }
     if(keyPress === "ArrowUp") {
         upOne.runTest();
@@ -410,6 +434,7 @@ $(document).on("keydown", (e) => {
         upThree.runTest();
         upFour.runTest();
         gameOver();
+        gameWin();
     }
     if(keyPress === "ArrowDown") {
         downOne.runTest();
@@ -417,5 +442,6 @@ $(document).on("keydown", (e) => {
         downThree.runTest();
         downFour.runTest();
         gameOver();
+        gameWin();
     }
 })
