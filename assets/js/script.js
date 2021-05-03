@@ -40,6 +40,9 @@ let startAddBlock = () => {
 // Function that adds random blocks when the game starts
 startAddBlock()
 // Score function
+if (localStorage.getItem("Best Score")) {
+    $("#best").html(localStorage.getItem("Best Score"))
+}
 let score = 0;
     let simpleAdd = (num1, num2) => {
         let addNumber = parseInt(num1) + parseInt(num2);
@@ -47,7 +50,8 @@ let score = 0;
         $("#score").html(score);
         let bestHtml = $("#best").text().trim();
         if (parseInt(bestHtml) < score) {
-            $("#best").html(score)
+            localStorage.setItem("Best Score", score);
+            $("#best").html(localStorage.getItem("Best Score"))
         }
     }
 
