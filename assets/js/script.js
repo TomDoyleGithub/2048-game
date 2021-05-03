@@ -36,6 +36,7 @@ let startAddBlock = () => {
         $(`#grid${j}`).append(`<section class="num2"><p>2</p></section>`)
     }
 }
+
 // Function that adds random blocks when the game starts
 startAddBlock()
 // Score function
@@ -452,3 +453,7 @@ $(document).on("keydown", (e) => {
         gameWin();
     }
 })
+
+module.exports = {
+    startAddBlock,
+}
