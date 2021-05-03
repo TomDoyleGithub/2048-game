@@ -424,6 +424,7 @@
     .main-interface {
         width: 280px;
         height: 431px;
+        grid-template: 0.5fr 4fr / 100%;
     }
 
     .game-over {
@@ -446,6 +447,15 @@
         font-size: 40px;
     }
 
+    .text-box p {
+        line-height: 1.5rem;
+        padding-right: 5px;
+    }
+
+    .score-box {
+        width: 100%;
+    }
+
     .game-content {
         width: 100%;
         height: 100%;
@@ -460,8 +470,9 @@
     .new-game {
         grid-column: none;
         position: absolute;
-        top: 130px;
+        top: 110px;
         padding: 10px;
+        right: 0px;
     }
 
 
@@ -522,5 +533,21 @@
             height: 100%;
             width: 100%;
         }
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .main-interface {
+        width: 240px;
+        height: 391px;
+    }
+
+    .grid-game {
+        grid-gap: 4px;
+    }
+
+    .how-play {
+        width: 260px;
+        font-size: 15px;
     }
 }
