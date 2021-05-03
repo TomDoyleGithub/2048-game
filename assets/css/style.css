@@ -415,7 +415,11 @@
     color: var(--yurk-brown);
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 540px) {
+
+    .background-container {
+        height: 850px;
+    }
 
     .main-interface {
         width: 280px;
