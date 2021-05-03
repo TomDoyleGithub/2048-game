@@ -106,7 +106,7 @@ let addBlock = () => {
 // Event listener that adds new block everytime the key is lifted
 $(document).on("keyup", (e) => {
     let keyLift = e.originalEvent.key;
-    if(keyLift === "ArrowRight" || keyLift === "ArrowLeft" || keyLift === "ArrowUp" || keyLift === "ArrowDown") {
+    if(keyLift === "ArrowRight" || keyLift === "ArrowLeft" || keyLift === "ArrowUp" || keyLift === "ArrowDown"  || keyLift === "d"  || keyLift === "s"  || keyLift === "a"  || keyLift === "w") {
         addBlock();
     }
 })
@@ -420,7 +420,7 @@ $(document).on("keydown", (e) => {
     const downFour = new Combination(grid3Num, grid7Num, grid11Num, grid15Num, inGrid3, inGrid7, inGrid11, inGrid15);
 
     // Runs the method in the constructor function depending on what key you press
-    if(keyPress === "ArrowRight") {
+    if(keyPress === "ArrowRight" || keyPress === "d") {
         rightOne.runTest();
         rightTwo.runTest();
         rightThree.runTest();
@@ -428,7 +428,7 @@ $(document).on("keydown", (e) => {
         gameOver();
         gameWin();
     }
-    if(keyPress === "ArrowLeft") {
+    if(keyPress === "ArrowLeft" || keyPress === "a") {
         leftOne.runTest();
         leftTwo.runTest();
         leftThree.runTest();
@@ -436,7 +436,7 @@ $(document).on("keydown", (e) => {
         gameOver();
         gameWin();
     }
-    if(keyPress === "ArrowUp") {
+    if(keyPress === "ArrowUp" || keyPress === "w") {
         upOne.runTest();
         upTwo.runTest();
         upThree.runTest();
@@ -444,7 +444,7 @@ $(document).on("keydown", (e) => {
         gameOver();
         gameWin();
     }
-    if(keyPress === "ArrowDown") {
+    if(keyPress === "ArrowDown" || keyPress === "s") {
         downOne.runTest();
         downTwo.runTest();
         downThree.runTest();
