@@ -388,6 +388,7 @@
         width: 100%;
     }
 }
+
 .number-change {
     font-size: 25px;
     color: white;
@@ -412,4 +413,76 @@
 
 .new-game:active {
     color: var(--yurk-brown);
+}
+
+@media screen and (max-width: 520px) {
+    .game-content {
+        width: 60%;
+        height: 60%;
+        padding: 8px;
+        margin: 30px auto;
+    }
+
+    .grid-game {
+        grid-gap: 8px;
+    }
+
+    .num2,
+    .num4,
+    .num8,
+    .num16,
+    .num32,
+    .num64 {
+        font-size: 30px;
+    }
+
+    .num128,
+    .num256,
+    .num512 {
+        font-size: 27px;
+    }
+
+    .num1024,
+    .num2048 {
+        font-size: 23px;
+    }
+
+    @keyframes size {
+        0% {
+            font-size: 10px;
+            height: 30%;
+            width: 30%;
+        }
+        100% {
+            font-size: 30px;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    
+    @keyframes size2 {
+        0% {
+            font-size: 10px;
+            height: 30%;
+            width: 30%;
+        }
+        100% {
+            font-size: 27px;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    
+    @keyframes size3 {
+        0% {
+            font-size: 10px;
+            height: 30%;
+            width: 30%;
+        }
+        100% {
+            font-size: 23px;
+            height: 100%;
+            width: 100%;
+        }
+    }
 }

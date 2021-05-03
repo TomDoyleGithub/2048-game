@@ -453,7 +453,3 @@ $(document).on("keydown", (e) => {
         gameWin();
     }
 })
-
-module.exports = {
-    startAddBlock,
-}
