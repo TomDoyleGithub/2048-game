@@ -107,6 +107,289 @@ let addBlock = () => {
     }
 }
 
+// Contructor function that runs the decisions making on movement and combination
+function Combination (block1, block2, block3, block4, html1, html2, html3, html4) {
+    this.addPlus = (one, two) => {
+        return `<section class="num${parseInt(one) + parseInt(two)}"><p>${parseInt(one) + parseInt(two)}</p></section>`
+    };
+    
+    this.allFours = block1 !== "" && block2 !== "" && block3 !== "" && block4 !== "";
+    this.allThree1 = block1 !== "" && block2 !== "" && block3 !== "" && block4 === "";
+    this.allThree2 = block1 === "" && block2 !== "" && block3 !== "" && block4 !== "";
+    this.allThree3 = block1 !== "" && block2 !== "" && block3 === "" && block4 !== "";
+    this.allThree4 = block1 !== "" && block2 === "" && block3 !== "" && block4 !== "";
+    // 
+    this.allTwo1 = block1 !== "" && block2 !== "" && block3 === "" && block4 === "";
+    this.allTwo2 = block1 === "" && block2 !== "" && block3 !== "" && block4 === "";
+    this.allTwo3 = block1 === "" && block2 === "" && block3 !== "" && block4 !== "";
+    this.allTwo4 = block1 !== "" && block2 === "" && block3 === "" && block4 !== "";
+    this.allTwo5 = block1 === "" && block2 !== "" && block3 === "" && block4 !== "";
+    this.allTwo6 = block1 !== "" && block2 === "" && block3 !== "" && block4 === "";
+    // 
+    this.allOne1 = block1 === "" && block2 === "" && block3 !== "" && block4 === "";
+    this.allOne2 = block1 === "" && block2 !== "" && block3 === "" && block4 === "";
+    this.allOne3 = block1 !== "" && block2 === "" && block3 === "" && block4 === "";
+    // 
+    this.possibleOne = block1 === block2 && block3 === block4;
+    this.possibleTwo = block1 === block2 && block2 === block3;
+    this.possibleThree = block1 === block2;
+    this.possibleFour = block3 === block4;
+    this.possibleFive = block2 === block3;
+    this.possibleSix = block2 === block4;
+    this.possibleSeven = block1 === block3;
+    this.possibleEight = block1 === block4;
+    this.runTest = () => {
+        if(this.allFours) {
+            if(this.possibleOne) {
+                combine = true;
+                html1.html(' ')
+                html2.html(' ')
+                html3.html(' ')
+                html4.html(' ')
+                html3.append(this.addPlus(block1, block2))
+                html4.append(this.addPlus(block3, block4))
+                simpleAdd(block1, block2);
+                simpleAdd(block3, block4);
+            } else if (this.possibleTwo) {
+                combine = true;
+                html3.html(' ')
+                html2.html(' ')
+                html2.append(html1.html());
+                html1.html(' ')
+                html3.append(this.addPlus(block2, block3))
+                simpleAdd(block2, block3);
+            } else if (this.possibleThree) {
+                combine = true;
+                html1.html(' ')
+                html2.html(' ')
+                html2.append(this.addPlus(block1, block2))
+                simpleAdd(block1, block2);
+            } else if (this.possibleFour) {
+                combine = true;
+                html3.html(' ')
+                html3.append(html2.html())
+                html2.html(' ')
+                html2.append(html1.html())
+                html1.html(' ')
+                html4.html(' ')
+                html4.append(this.addPlus(block3, block4));
+                simpleAdd(block3, block4);
+            } else if (this.possibleFive) {
+                combine = true;
+                html2.html(' ')
+                html2.append(html1.html())
+                html1.html(' ')
+                html3.html(' ')
+                html3.append(this.addPlus(block2, block3))
+                simpleAdd(block2, block3);
+            } else {
+                combine = false;
+            }
+        };
+        if(this.allThree1) {
+            combine = false;
+            if(this.possibleFive) {
+                combine = true;
+                html2.html(' ')
+                html3.html(' ')
+                html3.append(html1.html())
+                html1.html(' ')
+                html4.append(this.addPlus(block2, block3))
+                simpleAdd(block2, block3);
+            } else if (this.possibleThree) {
+                combine = true;
+                html1.html(' ')
+                html2.html(' ')
+                html4.append(html3.html())
+                html3.html(' ')
+                html3.append(this.addPlus(block1, block2))
+                simpleAdd(block1, block2);
+            } else {
+                html4.append(html3.html())
+                html3.html(' ')
+                html3.append(html2.html())
+                html2.html(' ')
+                html2.append(html1.html())
+                html1.html(' ')
+                combine = true;
+            };
+        };
+        if(this.allThree2) {
+            if(this.possibleFour) {
+                combine = true;
+                html3.html(' ')
+                html4.html(' ')
+                html3.append(html2.html())
+                html2.html(' ')
+                html4.append(this.addPlus(block3, block4))
+                simpleAdd(block3, block4);
+            } else if (this.possibleFive) {
+                combine = true;
+                html2.html(' ')
+                html3.html(' ')
+                html3.append(this.addPlus(block2, block3))
+                simpleAdd(block2, block3);
+            } else {
+                combine = false;
+            }
+        };
+        if(this.allThree3) {
+            combine = false;
+            if(this.possibleSix) {
+                combine = true;
+                html4.html(' ')
+                html2.html(' ')
+                html3.append(html1.html())
+                html1.html(' ')
+                html4.append(this.addPlus(block2, block4))
+                simpleAdd(block2, block4);
+            } else if(this.possibleThree) {
+                combine = true;
+                html3.html(' ')
+                html1.html(' ')
+                html2.html(' ')
+                html3.append(this.addPlus(block1, block2))
+                simpleAdd(block1, block2);
+            } else {
+                combine = true;
+                html3.append(html2.html())
+                html2.html(' ')
+                html2.append(html1.html())
+                html1.html(' ')
+            }
+        }
+        if(this.allThree4) {
+            combine = false;
+            if(this.possibleFour) {
+                combine = true;
+                html4.html(' ')
+                html3.html(' ')
+                html3.append(html1.html())
+                html1.html(' ')
+                html4.append(this.addPlus(block3, block4))
+                simpleAdd(block3, block4);
+            } else if(this.possibleSeven) {
+                combine = true;
+                html3.html(' ')
+                html1.html(' ')
+                html3.append(this.addPlus(block1, block3))
+                simpleAdd(block1, block3);
+            } else {
+                combine = true;
+                html2.append(html1.html())
+                html1.html(' ')
+            }
+        };
+        if(this.allTwo1) {
+            combine = false;
+            if(this.possibleThree) {
+                combine = true;
+                html1.html(' ')
+                html2.html(' ')
+                html4.append(this.addPlus(block1, block2))
+                simpleAdd(block1, block2);
+            } else {
+                combine = true;
+                html4.append(html2.html())
+                html2.html(' ')
+                html3.append(html1.html())
+                html1.html(' ')
+            }
+        }
+        if(this.allTwo2) {
+            combine = false;
+            if(this.possibleFive) {
+                combine = true;
+                html2.html(' ')
+                html3.html(' ')
+                html4.append(this.addPlus(block2, block3))
+                simpleAdd(block2, block3);
+            } else {
+                combine = true;
+                html4.append(html3.html())
+                html3.html(' ')
+                html3.append(html2.html())
+                html2.html(' ')
+            }
+        }
+        if(this.allTwo3) {
+            combine = false;
+            if(this.possibleFour) {
+                combine = true;
+                html3.html(' ')
+                html4.html(' ')
+                html4.append(this.addPlus(block3, block4))
+                simpleAdd(block3, block4);
+            }
+        }
+        if(this.allTwo4) {
+            combine = false;
+            if(this.possibleEight) {
+                combine = true;
+                html1.html(' ')
+                html4.html(' ')
+                html4.append(this.addPlus(block1, block4))
+                simpleAdd(block1, block4);
+            } else {
+                combine = true;
+                html3.append(html1.html())
+                html1.html(' ')
+            }
+        }
+        if(this.allTwo5) {
+            combine = false;
+            if(this.possibleSix) {
+                combine = true;
+                html2.html(' ')
+                html4.html(' ')
+                html4.append(this.addPlus(block2, block4))
+                simpleAdd(block2, block4);
+            } else {
+                combine = true;
+                html3.append(html2.html())
+                html2.html(' ')
+            }
+        }
+        if(this.allTwo6) {
+            combine = false;
+            if(this.possibleSeven) {
+                combine = true;
+                html1.html(' ')
+                html3.html(' ')
+                html4.append(this.addPlus(block1, block3))
+                simpleAdd(block1, block3);
+            } else {
+                combine = true;
+                html4.append(html3.html())
+                html3.html(' ')
+                html3.append(html1.html())
+                html1.html(' ')
+            }
+        }
+        if(this.allOne1) {
+            combine = true;
+            html4.append(html3.html())
+            html3.html(' ')
+        }
+        if(this.allOne2) {
+            combine = true;
+            html4.append(html2.html())
+            html2.html(' ')
+        }
+        if(this.allOne3) {
+            combine = true;
+            html4.append(html1.html())
+            html1.html(' ')
+        }
+    };
+
+}
+
+// $(document).on("touchstart", e => {
+//     console.log(e)
+//     console.log("Screen touched")
+// })
+
 // Event listener that adds new block everytime the key is lifted
 $(document).on("keyup", (e) => {
     let keyLift = e.originalEvent.key;
@@ -126,284 +409,6 @@ $(document).on("keydown", (e) => {
     for(let k = 0; k < 16; k++) {arrTrim.push($(`#grid${k}`).text().trim(" "))};
     const [inGrid0, inGrid1, inGrid2, inGrid3, inGrid4, inGrid5, inGrid6, inGrid7, inGrid8, inGrid9, inGrid10, inGrid11, inGrid12, inGrid13, inGrid14, inGrid15] = varArr;
     const [grid0Num, grid1Num, grid2Num, grid3Num, grid4Num, grid5Num, grid6Num, grid7Num, grid8Num, grid9Num, grid10Num, grid11Num, grid12Num, grid13Num, grid14Num, grid15Num, ] = arrTrim;
-    
-    // Contructor function that runs the decisions making on movement and combination
-    function Combination (block1, block2, block3, block4, html1, html2, html3, html4) {
-        this.addPlus = (one, two) => {
-            return `<section class="num${parseInt(one) + parseInt(two)}"><p>${parseInt(one) + parseInt(two)}</p></section>`
-        };
-        
-        this.allFours = block1 !== "" && block2 !== "" && block3 !== "" && block4 !== "";
-        this.allThree1 = block1 !== "" && block2 !== "" && block3 !== "" && block4 === "";
-        this.allThree2 = block1 === "" && block2 !== "" && block3 !== "" && block4 !== "";
-        this.allThree3 = block1 !== "" && block2 !== "" && block3 === "" && block4 !== "";
-        this.allThree4 = block1 !== "" && block2 === "" && block3 !== "" && block4 !== "";
-        // 
-        this.allTwo1 = block1 !== "" && block2 !== "" && block3 === "" && block4 === "";
-        this.allTwo2 = block1 === "" && block2 !== "" && block3 !== "" && block4 === "";
-        this.allTwo3 = block1 === "" && block2 === "" && block3 !== "" && block4 !== "";
-        this.allTwo4 = block1 !== "" && block2 === "" && block3 === "" && block4 !== "";
-        this.allTwo5 = block1 === "" && block2 !== "" && block3 === "" && block4 !== "";
-        this.allTwo6 = block1 !== "" && block2 === "" && block3 !== "" && block4 === "";
-        // 
-        this.allOne1 = block1 === "" && block2 === "" && block3 !== "" && block4 === "";
-        this.allOne2 = block1 === "" && block2 !== "" && block3 === "" && block4 === "";
-        this.allOne3 = block1 !== "" && block2 === "" && block3 === "" && block4 === "";
-        // 
-        this.possibleOne = block1 === block2 && block3 === block4;
-        this.possibleTwo = block1 === block2 && block2 === block3;
-        this.possibleThree = block1 === block2;
-        this.possibleFour = block3 === block4;
-        this.possibleFive = block2 === block3;
-        this.possibleSix = block2 === block4;
-        this.possibleSeven = block1 === block3;
-        this.possibleEight = block1 === block4;
-        this.runTest = () => {
-            if(this.allFours) {
-                if(this.possibleOne) {
-                    combine = true;
-                    html1.html(' ')
-                    html2.html(' ')
-                    html3.html(' ')
-                    html4.html(' ')
-                    html3.append(this.addPlus(block1, block2))
-                    html4.append(this.addPlus(block3, block4))
-                    simpleAdd(block1, block2);
-                    simpleAdd(block3, block4);
-                } else if (this.possibleTwo) {
-                    combine = true;
-                    html3.html(' ')
-                    html2.html(' ')
-                    html2.append(html1.html());
-                    html1.html(' ')
-                    html3.append(this.addPlus(block2, block3))
-                    simpleAdd(block2, block3);
-                } else if (this.possibleThree) {
-                    combine = true;
-                    html1.html(' ')
-                    html2.html(' ')
-                    html2.append(this.addPlus(block1, block2))
-                    simpleAdd(block1, block2);
-                } else if (this.possibleFour) {
-                    combine = true;
-                    html3.html(' ')
-                    html3.append(html2.html())
-                    html2.html(' ')
-                    html2.append(html1.html())
-                    html1.html(' ')
-                    html4.html(' ')
-                    html4.append(this.addPlus(block3, block4));
-                    simpleAdd(block3, block4);
-                } else if (this.possibleFive) {
-                    combine = true;
-                    html2.html(' ')
-                    html2.append(html1.html())
-                    html1.html(' ')
-                    html3.html(' ')
-                    html3.append(this.addPlus(block2, block3))
-                    simpleAdd(block2, block3);
-                } else {
-                    combine = false;
-                }
-            };
-            if(this.allThree1) {
-                combine = false;
-                if(this.possibleFive) {
-                    combine = true;
-                    html2.html(' ')
-                    html3.html(' ')
-                    html3.append(html1.html())
-                    html1.html(' ')
-                    html4.append(this.addPlus(block2, block3))
-                    simpleAdd(block2, block3);
-                } else if (this.possibleThree) {
-                    combine = true;
-                    html1.html(' ')
-                    html2.html(' ')
-                    html4.append(html3.html())
-                    html3.html(' ')
-                    html3.append(this.addPlus(block1, block2))
-                    simpleAdd(block1, block2);
-                } else {
-                    html4.append(html3.html())
-                    html3.html(' ')
-                    html3.append(html2.html())
-                    html2.html(' ')
-                    html2.append(html1.html())
-                    html1.html(' ')
-                    combine = true;
-                };
-            };
-            if(this.allThree2) {
-                if(this.possibleFour) {
-                    combine = true;
-                    html3.html(' ')
-                    html4.html(' ')
-                    html3.append(html2.html())
-                    html2.html(' ')
-                    html4.append(this.addPlus(block3, block4))
-                    simpleAdd(block3, block4);
-                } else if (this.possibleFive) {
-                    combine = true;
-                    html2.html(' ')
-                    html3.html(' ')
-                    html3.append(this.addPlus(block2, block3))
-                    simpleAdd(block2, block3);
-                } else {
-                    combine = false;
-                }
-            };
-            if(this.allThree3) {
-                combine = false;
-                if(this.possibleSix) {
-                    combine = true;
-                    html4.html(' ')
-                    html2.html(' ')
-                    html3.append(html1.html())
-                    html1.html(' ')
-                    html4.append(this.addPlus(block2, block4))
-                    simpleAdd(block2, block4);
-                } else if(this.possibleThree) {
-                    combine = true;
-                    html3.html(' ')
-                    html1.html(' ')
-                    html2.html(' ')
-                    html3.append(this.addPlus(block1, block2))
-                    simpleAdd(block1, block2);
-                } else {
-                    combine = true;
-                    html3.append(html2.html())
-                    html2.html(' ')
-                    html2.append(html1.html())
-                    html1.html(' ')
-                }
-            }
-            if(this.allThree4) {
-                combine = false;
-                if(this.possibleFour) {
-                    combine = true;
-                    html4.html(' ')
-                    html3.html(' ')
-                    html3.append(html1.html())
-                    html1.html(' ')
-                    html4.append(this.addPlus(block3, block4))
-                    simpleAdd(block3, block4);
-                } else if(this.possibleSeven) {
-                    combine = true;
-                    html3.html(' ')
-                    html1.html(' ')
-                    html3.append(this.addPlus(block1, block3))
-                    simpleAdd(block1, block3);
-                } else {
-                    combine = true;
-                    html2.append(html1.html())
-                    html1.html(' ')
-                }
-            };
-            if(this.allTwo1) {
-                combine = false;
-                if(this.possibleThree) {
-                    combine = true;
-                    html1.html(' ')
-                    html2.html(' ')
-                    html4.append(this.addPlus(block1, block2))
-                    simpleAdd(block1, block2);
-                } else {
-                    combine = true;
-                    html4.append(html2.html())
-                    html2.html(' ')
-                    html3.append(html1.html())
-                    html1.html(' ')
-                }
-            }
-            if(this.allTwo2) {
-                combine = false;
-                if(this.possibleFive) {
-                    combine = true;
-                    html2.html(' ')
-                    html3.html(' ')
-                    html4.append(this.addPlus(block2, block3))
-                    simpleAdd(block2, block3);
-                } else {
-                    combine = true;
-                    html4.append(html3.html())
-                    html3.html(' ')
-                    html3.append(html2.html())
-                    html2.html(' ')
-                }
-            }
-            if(this.allTwo3) {
-                combine = false;
-                if(this.possibleFour) {
-                    combine = true;
-                    html3.html(' ')
-                    html4.html(' ')
-                    html4.append(this.addPlus(block3, block4))
-                    simpleAdd(block3, block4);
-                }
-            }
-            if(this.allTwo4) {
-                combine = false;
-                if(this.possibleEight) {
-                    combine = true;
-                    html1.html(' ')
-                    html4.html(' ')
-                    html4.append(this.addPlus(block1, block4))
-                    simpleAdd(block1, block4);
-                } else {
-                    combine = true;
-                    html3.append(html1.html())
-                    html1.html(' ')
-                }
-            }
-            if(this.allTwo5) {
-                combine = false;
-                if(this.possibleSix) {
-                    combine = true;
-                    html2.html(' ')
-                    html4.html(' ')
-                    html4.append(this.addPlus(block2, block4))
-                    simpleAdd(block2, block4);
-                } else {
-                    combine = true;
-                    html3.append(html2.html())
-                    html2.html(' ')
-                }
-            }
-            if(this.allTwo6) {
-                combine = false;
-                if(this.possibleSeven) {
-                    combine = true;
-                    html1.html(' ')
-                    html3.html(' ')
-                    html4.append(this.addPlus(block1, block3))
-                    simpleAdd(block1, block3);
-                } else {
-                    combine = true;
-                    html4.append(html3.html())
-                    html3.html(' ')
-                    html3.append(html1.html())
-                    html1.html(' ')
-                }
-            }
-            if(this.allOne1) {
-                combine = true;
-                html4.append(html3.html())
-                html3.html(' ')
-            }
-            if(this.allOne2) {
-                combine = true;
-                html4.append(html2.html())
-                html2.html(' ')
-            }
-            if(this.allOne3) {
-                combine = true;
-                html4.append(html1.html())
-                html1.html(' ')
-            }
-        };
-
-    }
 
     // All constructor function calls
     const rightOne = new Combination(grid0Num, grid1Num, grid2Num, grid3Num, inGrid0, inGrid1, inGrid2, inGrid3);
