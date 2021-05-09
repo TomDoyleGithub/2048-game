@@ -16,6 +16,10 @@
     --final-yellow: #E7C44E;
 }
 
+body {
+    touch-action: none;
+}
+
 /* Selecion color */
 ::selection {
     background: white;
@@ -417,13 +421,22 @@
 
 @media screen and (max-width: 540px) {
 
+    .how-play {
+        display: none;
+    }
+
+    #score,
+    #best {
+        font-size: 20px;
+    }
+
     .background-container {
         height: 850px;
     }
 
     .main-interface {
-        width: 280px;
-        height: 431px;
+        width: 292px;
+        height: 434px;
         grid-template: 0.5fr 4fr / 100%;
     }
 

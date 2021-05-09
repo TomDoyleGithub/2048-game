@@ -392,6 +392,7 @@ $(document).on("keyup", (e) => {
     }
 })
 
+
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);
 
