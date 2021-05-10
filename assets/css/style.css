@@ -552,12 +552,12 @@ body {
 
 @media screen and (max-width: 300px) {
     .main-interface {
-        width: 240px;
-        height: 391px;
+        width: 261px;
+        height: 404px;
     }
 
     .grid-game {
-        grid-gap: 4px;
+        grid-gap: 8px;
     }
 
     .how-play {
