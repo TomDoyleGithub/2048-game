@@ -66,6 +66,44 @@ body {
     color: var(--dark-brown);
 }
 
+.how-play-2 {
+    width: 80%;
+    line-height: 1.8rem;
+    font-size: 15px;
+    color: var(--dark-brown);
+    text-align: center;
+}
+
+.go-back {
+    background-color: var(--yurk-brown);
+    border-radius: 5px;
+    border: none;
+    color: var(--tan);
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.feature {
+    font-size: 13px;
+}
+
+.mobile-play {
+    background-color: var(--tan);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
 /* Main title font */
 .font {
     font-family: proxima-nova, sans-serif;
@@ -442,6 +480,12 @@ body {
         font-size: 18px;
         padding: 10px;
         display: block;
+        cursor: pointer;
+        opacity: 80%;
+    }
+
+    .play-button:hover {
+        opacity: 50%;
     }
 
     #score,
