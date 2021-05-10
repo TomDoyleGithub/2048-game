@@ -419,10 +419,29 @@ body {
     color: var(--yurk-brown);
 }
 
+.play-button {
+    display: none;
+}
+
 @media screen and (max-width: 540px) {
 
     .how-play {
         display: none;
+    }
+
+    .play-button {
+        position: absolute;
+        top: 540px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        background-color: var(--yurk-brown);
+        border-radius: 5px;
+        border: none;
+        color: var(--tan);
+        font-size: 18px;
+        padding: 10px;
+        display: block;
     }
 
     #score,
@@ -551,6 +570,9 @@ body {
 }
 
 @media screen and (max-width: 300px) {
+    .play-button {
+        top: 500px;
+    }
     .main-interface {
         width: 261px;
         height: 404px;
