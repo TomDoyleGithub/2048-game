@@ -2,6 +2,15 @@
 const winAudio = new Audio("./assets/sound/win.wav");
 const clapAudio = new Audio("./assets/sound/clap.wav");
 const loseAudio = new Audio("./assets/sound/lose.wav");
+
+$(".play-button").on("click", () => {
+    $(".mobile-play").css({"display": "flex"})
+})
+
+$(".go-back").on("click", () => {
+    $(".mobile-play").css({"display": "none"})
+})
+
 // Starts game when new game button is clicked
 $(".new-game").on("click", () => {
     $(".game-content").css({"opacity": "100%"})
